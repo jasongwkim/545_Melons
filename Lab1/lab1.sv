@@ -31,12 +31,12 @@ module lab1(
     
     assign ledCount = count; 
     
-    always_ff @(posedge countButton, negedge rst_n) begin
-        if(~rst_n) begin
+    always_ff @(posedge btnC, negedge btnCpuReset) begin
+        if(~btnCpuReset) begin
             count = 0;
         end
-        else if(countButton) begin
-            if(countDirection) begin
+        else if(btnC) begin
+            if(sw[0]) begin
                 count <= count + 1;
             end
             else begin
