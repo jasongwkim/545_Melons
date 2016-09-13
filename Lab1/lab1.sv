@@ -21,32 +21,100 @@
 
 
 module lab1(
-    input btnCpuReset,
-    input btnC,
-    input sw[0],
-    output Hsync, Vsync,
-    output [3:0] vgaRed, vgaBlue, vgaGreen,
-    output [7:0] led  
+    input clk, sw[0],
+    input [3:0] btn,
+    output vga_hs, vga_vs,
+    output [3:0] vga_r, vga_b, vga_g,
+    output [3:0] led  
     );
     
-    logic [7:0] count;
+    logic hs, vs; 
+    logic [3:0] count;
+    logic [9:0] h_count;
+    logic [23:0] v_count;
     
-    assign ledCount = count; 
-    assign vgaRed = count[3:0];
-    assign vgaBlue = count[7:4] + count[3:0];
-    assign vgaGreen = count[5:2] - count [7:6] + count[1:0];
+    enum {V_PULSE, V_SYNC} V_STATE;
+    enum {H_PULSE, H_SYNC} H_STATE; 
     
-    always_ff @(posedge btnC, negedge btnCpuReset) begin
-        if(~btnCpuReset) begin
+    assign led = count; 
+    assign vga_hs = hs;
+    assign vga_vs = vs;
+    assign vga_r = count[3:0];
+    assign vga_b = count[3:0];
+    assign vga_g = count[3:0];
+    
+    
+    always_ff @(posedge clk, negedge btn[0]) begin
+        if(~btn[0]) begin
             count = 0;
+            v_count = 0;
+            h_count = 0;
+            hs = 0;
+            vs = 0;
+            V_STATE = V_PULSE;
+            H_STATE = H_PULSE;
         end
-        else if(btnC) begin
-            if(sw[0]) begin
-                count <= count + 1;
+        else begin
+            if(v_count < 833599) begin
+                v_count <= v_count + 1;
             end
             else begin
-                count <= count - 1;
+                v_count <= 0;
+            end
+            
+            case(V_STATE)
+                V_PULSE: begin
+                    if(v_count < 3199) begin
+                        hs <= 0;
+                        vs <= 0; 
+                        h_count <= 0;           
+                    end
+                    else begin
+                        V_STATE <= V_SYNC;
+                    end
+                end
+                V_SYNC: begin
+                    if(h_count < 1599) begin
+                        h_count <= h_count + 1;
+                    end
+                    else begin
+                        h_count <= 0;
+                    end
+                    
+                    case(H_STATE) 
+                        H_PULSE: begin
+                            hs <= 0;
+                        end
+                        H_STATE: begin
+                            if(h_count < 1599) begin
+                                hs <= 1;
+                            end
+                            else begin
+                                hs <= 0;
+                                H_STATE <= H_PULSE;
+                            end
+                        end
+                    endcase
+                
+                    if(v_count < 833599) begin
+                        vs <= 1;
+                    end
+                    else begin
+                        vs <= 0;
+                        V_STATE <= V_PULSE;
+                    end
+                end
+            endcase
+        
+            if(btn[1]) begin
+                if(sw[0]) begin
+                    count <= count + 1;
+                end
+                else begin
+                    count <= count - 1;
+                end
             end
         end
     end
+    
 endmodule
