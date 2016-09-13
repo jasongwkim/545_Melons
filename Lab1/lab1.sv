@@ -24,12 +24,17 @@ module lab1(
     input btnCpuReset,
     input btnC,
     input sw[0],
+    output Hsync, Vsync,
+    output [3:0] vgaRed, vgaBlue, vgaGreen,
     output [7:0] led  
     );
     
     logic [7:0] count;
     
     assign ledCount = count; 
+    assign vgaRed = count[3:0];
+    assign vgaBlue = count[7:4] + count[3:0];
+    assign vgaGreen = count[5:2] - count [7:6] + count[1:0];
     
     always_ff @(posedge btnC, negedge btnCpuReset) begin
         if(~btnCpuReset) begin
