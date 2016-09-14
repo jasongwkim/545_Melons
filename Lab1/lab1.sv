@@ -21,11 +21,10 @@
 
 
 module lab1(
-    input clk, sw[0],
-    input [3:0] btn,
-    output vga_hs, vga_vs,
-    output [3:0] vga_r, vga_b, vga_g,
-    output [3:0] led  
+    input clk, sw[0], btnC, btnU,
+    output Hsync, Vsync,
+    output [3:0] vgaRed, vgaBlue, vgaGreen,
+    output [7:0] led  
     );
     
     logic hs, vs; 
@@ -35,17 +34,19 @@ module lab1(
     
     enum {V_PULSE, V_SYNC} V_STATE;
     enum {H_PULSE, H_SYNC} H_STATE; 
+    enum {UNPRESSED, PRESSED} B_STATE;
     
-    assign led = count; 
-    assign vga_hs = hs;
-    assign vga_vs = vs;
-    assign vga_r = count[3:0];
-    assign vga_b = count[3:0];
-    assign vga_g = count[3:0];
+    assign led[3:0] = count;
+    assign led[7:4] = 4'b1111; 
+    assign Hsync = hs;
+    assign Vsync = vs;
+    assign vgaRed = count[3:0];
+    assign vgaBlue = count[3:0];
+    assign vgaGreen = count[3:0];
     
     
-    always_ff @(posedge clk, negedge btn[0]) begin
-        if(~btn[0]) begin
+    always_ff @(posedge clk, negedge btnU) begin
+        if(~btnU) begin
             count = 0;
             v_count = 0;
             h_count = 0;
@@ -53,9 +54,10 @@ module lab1(
             vs = 0;
             V_STATE = V_PULSE;
             H_STATE = H_PULSE;
+            B_STATE = UNPRESSED;
         end
         else begin
-            if(v_count < 833599) begin
+            if(v_count < 416799) begin
                 v_count <= v_count + 1;
             end
             else begin
@@ -64,7 +66,7 @@ module lab1(
             
             case(V_STATE)
                 V_PULSE: begin
-                    if(v_count < 3199) begin
+                    if(v_count < 1699) begin
                         hs <= 0;
                         vs <= 0; 
                         h_count <= 0;           
@@ -74,7 +76,7 @@ module lab1(
                     end
                 end
                 V_SYNC: begin
-                    if(h_count < 1599) begin
+                    if(h_count < 799) begin
                         h_count <= h_count + 1;
                     end
                     else begin
@@ -106,14 +108,24 @@ module lab1(
                 end
             endcase
         
-            if(btn[1]) begin
-                if(sw[0]) begin
-                    count <= count + 1;
+            case(B_STATE) 
+                UNPRESSED: begin
+                    if(btnC) begin
+                        B_STATE <= PRESSED;
+                        if(sw[0]) begin
+                            count <= count + 1;
+                        end
+                        else begin
+                            count <= count - 1;
+                        end
+                    end
                 end
-                else begin
-                    count <= count - 1;
+                PRESSED: begin
+                    if(~btnC) begin
+                        B_STATE <= UNPRESSED;
+                    end
                 end
-            end
+            endcase
         end
     end
     
