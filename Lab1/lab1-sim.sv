@@ -1,27 +1,26 @@
-module lab1_sim(
-    output clk, sw[0],
-    output [3:0] btn,
-    input vga_hs, vga_vs,
-    input [3:0] vga_r, vga_b, vga_g,
-    input [3:0] led  
+module lab1_sim(  
     );
     
-    logic clock = 0;
+    logic clk, sw, btnC, btnU;
+    logic [6:0] seg;
+    logic [7:0] an, led;
+    logic [15:0] sw;
     
-    assign clk = clock;
+    lab1 l1a(.clk(clk), .btnC(btnC), .btnU(btnU), .sw(sw), 
+                   .seg(seg), .an(an), .led(led));
     
     always begin 
-        #5 clock = ~clock;
+        #5 clk = ~clk;
     end
     
     initial begin
-        sw[0] = 1;
-        btn[0] = 0;
-        btn [1] = 0;
-        @(posedge clock);
-        btn[0] = 1;
-        repeat(1000) @ (posedge clock);
+        sw = 1;
+        btnU = 0;
+        btnC = 0;
+        @(posedge clk);
+        btnU = 1;
+        repeat(1000) @ (posedge clk);
     end
     
     
-endmodule lab1_sim    
+endmodule: lab1_sim    

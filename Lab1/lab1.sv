@@ -21,13 +21,13 @@
 
 
 module lab1(
-    input sys_clk_pin, SW[1:0], BTNC, BTNU,
+    input CLK100MHZ, SW[1:0], BTNC, BTNU,
     output VGA_HS, VGA_VS,
     output [3:0] VGA_R, VGA_B, VGA_G,
     output [7:0] LED  
     );
     
-    logic hs, vs; 
+    logic hs, vs, vga_clk, clk_div;
     logic [3:0] count;
     logic [9:0] h_count;
     logic [23:0] v_count;
@@ -44,8 +44,21 @@ module lab1(
     assign VGA_B = (H_STATE == H_DISP) ? count : 0;
     assign VGA_G = (H_STATE == H_DISP) ? count : 0;
     
+    always_ff @(posedge CLK100MHZ, posedge BTNU) begin
+        if(BTNU) begin
+            clk_div = 0;
+            vga_clk = 0;
+        end
+        else begin
+            clk_div <= clk_div + 1;
+            if(clk_divs) begin
+                vga_clk <= ~vga_clk;
+            end
+        end
+    end
     
-    always_ff @(posedge sys_clk_pin, posedge BTNU) begin
+    
+    always_ff @(posedge vga_clk, posedge BTNU) begin
         if(BTNU) begin
             count = 0;
             v_count = 0;
