@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/ece.cmu.edu/usr/sjurcsek/Private/18545/545_Melons/Lab1/lab1_alter.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lab1
+INFO: [VRFC 10-2263] Analyzing Verilog file "/afs/ece.cmu.edu/usr/sjurcsek/Private/18545/545_Melons/Lab3/Lab3/Lab3.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
