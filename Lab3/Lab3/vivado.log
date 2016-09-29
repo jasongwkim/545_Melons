@@ -2,21 +2,23 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Thu Sep 29 15:55:48 2016
-# Process ID: 21992
-# Current directory: C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent31356 C:\Users\bradp\OneDrive\Documents\GitHub\545_Melons\Lab3\Lab3\Lab3.xpr
-# Log file: C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/vivado.log
-# Journal file: C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3\vivado.jou
+# Start of session at: Thu Sep 29 17:56:19 2016
+# Process ID: 7872
+# Current directory: C:/Workspace/545_Melons/Lab3/Lab3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7012 C:\Workspace\545_Melons\Lab3\Lab3\Lab3.xpr
+# Log file: C:/Workspace/545_Melons/Lab3/Lab3/vivado.log
+# Journal file: C:/Workspace/545_Melons/Lab3/Lab3\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr
-INFO: [Project 1-313] Project file moved from '/afs/ece.cmu.edu/usr/sjurcsek/Private/18545/545_Melons/Lab3/Lab3' since last save.
+open_project C:/Workspace/545_Melons/Lab3/Lab3/Lab3.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3' since last save.
 Scanning sources...
 Finished scanning sources
-INFO: [Project 1-230] Project 'Lab3.xpr' upgraded for this version of Vivado.
+WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'C:/Workspace/545_Melons/Lab3/Lab3/Lab3.ip_user_files', nor could it be found using path 'C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.ip_user_files'.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/xilinx/Vivado/2016.2/data/ip'.
-open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 808.832 ; gain = 152.828
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 817.633 ; gain = 164.195
+update_compile_order -fileset sources_1
+add_files -norecurse C:/Workspace/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/USBtoPCM.sv
 update_compile_order -fileset sources_1
