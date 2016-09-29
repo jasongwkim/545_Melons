@@ -1,0 +1,131 @@
+/*
+
+Vivado v2016.2 (64-bit)
+SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+Process ID: 21992
+
+Current time: 	9/29/16 3:56:27 PM EDT
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Windows 10
+Version: 10.0
+Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Tahoma,name=Tahoma,style=plain,size=11
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	C:/xilinx/Vivado/2016.2/tps/win64/jre
+
+User name: 	bradp
+User home directory: C:/Users/bradp
+User working directory: C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI Base root directory: C:/xilinx/Vivado
+RDI Data directory: C:/xilinx/Vivado/2016.2/data
+RDI Bin directory: C:/xilinx/Vivado/2016.2/bin
+
+Vivado preferences path: C:/Users/bradp/AppData/Roaming/Xilinx/Vivado/2016.2/vivado.ini
+Vivado layouts directory: C:/Users/bradp/AppData/Roaming/Xilinx/Vivado/2016.2/layouts
+
+GUI allocated memory:	178 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 413 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 33 MB (+32505kb) [00:00:11]
+// [Engine Memory]: 410 MB (+278743kb) [00:00:11]
+// aZ:y (cv:JFrame): Older Project Version: addNotify
+// [GUI Memory]: 41 MB (+6603kb) [00:00:14]
+// HMemoryUtils.trashcanNow. Engine heap size: 428 MB. GUI used memory: 29 MB. Current time: 9/29/16 3:56:29 PM EDT
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, aZ:y)
+// Opening Vivado Project: C:\Users\bradp\OneDrive\Documents\GitHub\545_Melons\Lab3\Lab3\Lab3.xpr. Version: Vivado v2015.2 
+// bL:g (cv:JFrame):  Open Project : addNotify
+dismissDialog("Older Project Version"); // aZ:y (cv:JFrame)
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr 
+// [Engine Memory]: 431 MB (+237kb) [00:00:24]
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from '/afs/ece.cmu.edu/usr/sjurcsek/Private/18545/545_Melons/Lab3/Lab3' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [Project 1-230] Project 'Lab3.xpr' upgraded for this version of Vivado. INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 46 MB (+2773kb) [00:00:29]
+// [Engine Memory]: 531 MB (+82239kb) [00:00:29]
+// [GUI Memory]: 50 MB (+1155kb) [00:00:30]
+// [Engine Memory]: 562 MB (+4063kb) [00:00:30]
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/xilinx/Vivado/2016.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 562 MB. GUI used memory: 33 MB. Current time: 9/29/16 3:56:44 PM EDT
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Project name: Lab3; location: C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3; part: xc7a100tcsg324-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 808.832 ; gain = 152.828 
+dismissDialog("Open Project"); // bL:g (cv:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// [GUI Memory]: 53 MB (+816kb) [00:00:32]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (PCMtoPWM.sv) elapsed time: 0.2s
+// Elapsed time: 14 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PCMtoPWM (PCMtoPWM.sv)]", 2, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PCMtoPWM (PCMtoPWM.sv)]", 2, false, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click
+// [Engine Memory]: 597 MB (+8119kb) [00:00:48]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, lab1 (lab1_alter.sv)]", 1, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, lab1 (lab1_alter.sv)]", 1, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, lab1 (lab1_alter.sv)]", 1, false, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click
+// [GUI Memory]: 57 MB (+1266kb) [00:00:49]
+// HMemoryUtils.trashcanNow. Engine heap size: 597 MB. GUI used memory: 36 MB. Current time: 9/29/16 3:57:04 PM EDT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PCMtoPWM (PCMtoPWM.sv)]", 2, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PCMtoPWM (PCMtoPWM.sv)]", 2, false, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("PCMtoPWM.sv", 113, 435); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 60 MB (+331kb) [00:01:09]
+// Elapsed time: 11 seconds
+selectCodeEditor("PCMtoPWM.sv", 136, 470); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// [GUI Memory]: 63 MB (+77kb) [00:01:28]
+// Elapsed time: 28 seconds
+selectCodeEditor("PCMtoPWM.sv", 124, 335); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("PCMtoPWM.sv", 124, 335, false, false, false, false, true); // bH:N (JPanel:JComponent, cv:JFrame) - Double Click
+selectCodeEditor("PCMtoPWM.sv", 116, 283); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("PCMtoPWM.sv", 115, 281); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("PCMtoPWM.sv", 247, 294); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("PCMtoPWM.sv", 65, 281); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("PCMtoPWM.sv", 105, 183); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 67 MB (+1389kb) [00:02:08]
+// Elapsed time: 91 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "lab1_alter.sv", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cv:JFrame)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // D:b
+// [GUI Memory]: 71 MB (+510kb) [00:03:44]
+// [GUI Memory]: 75 MB (+401kb) [00:07:29]
+// [GUI Memory]: 79 MB (+9kb) [00:23:10]

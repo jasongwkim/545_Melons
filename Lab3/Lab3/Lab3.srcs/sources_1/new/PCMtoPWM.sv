@@ -38,7 +38,7 @@ module PCMtoPWM(
     );
     
     logic [7:0] PCM_reg;
-    logic[7:0] PWM_ctr;
+    logic [7:0] PCM_ctr;
     logic ack;
     logic out;
     
@@ -53,7 +53,7 @@ module PCMtoPWM(
         end
         //received valid pcm signal anc we haven't acknowledged it
         else if (PCM_valid && !ack) begin
-            PCM_ack <=1'b1;
+            ack <=1'b1;
             PCM_reg <= PCM_data;
             PCM_ctr <= 0;
         end
