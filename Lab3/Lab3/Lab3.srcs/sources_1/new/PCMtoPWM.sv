@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-// A module that, given an 8 bit PCM input, will output a 255-scale PWM. 
+// A module that, given a 16 bit PCM input, will output a 255-scale PWM. 
 // Protocol:
 // Pulse rst at the beginning to configure PCM_ack.
 // User should push data to PCM_data, then activate PCM_valid.
@@ -32,13 +32,13 @@
 module PCMtoPWM(
     input clk, rst,
     input PCM_valid,
-    input [7:0] PCM_data,
+    input [15:0] PCM_data,
     output PCM_ack,
     output PWM
     );
     
-    logic [7:0] PCM_reg;
-    logic [7:0] PCM_ctr;
+    logic signed [15:0] PCM_reg;
+    logic signed [15:0] PCM_ctr;
     logic ack;
     logic out;
     
@@ -49,10 +49,10 @@ module PCMtoPWM(
         //reset configures ack to 0 ,sets silence
         if(~rst) begin
             ack <= 1'b0;
-            PCM_reg <= 8'b0;
+            PCM_reg <= 16'b1000000000000000;
         end
         //received valid pcm signal anc we haven't acknowledged it
-        else if (PCM_valid && !ack) begin
+        else if (PCM_valid) begin
             ack <=1'b1;
             PCM_reg <= PCM_data;
             PCM_ctr <= 0;
