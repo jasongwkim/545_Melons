@@ -30,7 +30,7 @@
 
 
 module PCMtoPWM(
-    input CLK100MHZ, rst,
+    input clk, rst,
     input PCM_valid,
     input [7:0] PCM_data,
     output PCM_ack,
@@ -45,7 +45,7 @@ module PCMtoPWM(
     assign PCM_ack = ack;
     assign PWM=out;
     
-    always_ff@(posedge CLK100MHZ, posedge PCM_valid, negedge rst) begin
+    always_ff@(posedge clk, posedge PCM_valid, negedge rst) begin
         //reset configures ack to 0 ,sets silence
         if(~rst) begin
             ack <= 1'b0;
