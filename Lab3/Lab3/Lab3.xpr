@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="14" Path="C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr">
+<Project Version="7" Minor="14" Path="C:/Workspace/545_Melons/Lab3/Lab3/Lab3.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="2707cc89a5184832af9afff666a7374f"/>
@@ -58,6 +58,14 @@
       </File>
       <File Path="$PPRDIR/../../Lab1/lab1_alter.sv">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/sd_controller.sv">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
