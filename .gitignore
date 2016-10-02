@@ -33,9 +33,9 @@
 *.su
 
 # Directories
-/z80/z80.cache/*
-/z80/z80.hw/*
-/z80/z80.ip_user_files/*
-/z80/z80.runs/*
-/z80/z80.sim/*
-/Lab3/Lab3/Lab3.cache/*
+/z80/*/
+/Lab3/Lab3/*
+/Lab3/Lab3/*/
+/Lab3/Lab3/*
+!/Lab3/Lab3/Lab3.xpr
+!/Lab3/Lab3/Lab3.srcs
