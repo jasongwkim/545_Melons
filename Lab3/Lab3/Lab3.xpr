@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="14" Path="C:/Workspace/545_Melons/Lab3/Lab3/Lab3.xpr">
+<Project Version="7" Minor="14" Path="C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="2707cc89a5184832af9afff666a7374f"/>
@@ -31,13 +31,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="0"/>
-    <Option Name="WTModelSimExportSim" Val="0"/>
-    <Option Name="WTQuestaExportSim" Val="0"/>
-    <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="0"/>
-    <Option Name="WTRivieraExportSim" Val="0"/>
-    <Option Name="WTActivehdlExportSim" Val="0"/>
+    <Option Name="WTXSimExportSim" Val="2"/>
+    <Option Name="WTModelSimExportSim" Val="2"/>
+    <Option Name="WTQuestaExportSim" Val="2"/>
+    <Option Name="WTIesExportSim" Val="2"/>
+    <Option Name="WTVcsExportSim" Val="2"/>
+    <Option Name="WTRivieraExportSim" Val="2"/>
+    <Option Name="WTActivehdlExportSim" Val="2"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
@@ -58,14 +58,6 @@
       </File>
       <File Path="$PPRDIR/../../Lab1/lab1_alter.sv">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/sd_controller.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -101,6 +93,38 @@
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
+    <FileSet Name="fifo_generator_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fifo_generator_1">
+      <File Path="$PSRCDIR/sources_1/ip/fifo_generator_1/fifo_generator_1.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1.vho"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1.veo"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_sim_netlist.v"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_stub.v"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_sim_netlist.vhdl"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_stub.vhdl"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1.xml"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1/fifo_generator_1.xdc"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="doc/fifo_generator_v13_1_changelog.txt"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="blk_mem_gen_v8_3_3/hdl/blk_mem_gen_v8_3_vhsyn_rfs.vhd"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="synth/fifo_generator_1.vhd"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1.vhd"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="blk_mem_gen_v8_3_3/hdl/blk_mem_gen_v8_3.vhd"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1_vhsyn_rfs.vhd"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1_rfs.v"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1_rfs.vhd"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="sim/fifo_generator_1.v"/>
+        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/simulation/fifo_generator_vlog_beh.v"/>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="fifo_generator_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -134,6 +158,15 @@
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
+    <Run Id="fifo_generator_1_synth_1" Type="Ft3:Synth" SrcSet="fifo_generator_1" Part="xc7a100tcsg324-1" ConstrsSet="fifo_generator_1" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/fifo_generator_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
@@ -148,6 +181,22 @@
         <Step Id="write_bitstream"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="fifo_generator_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="fifo_generator_1" Description="Default settings for Implementation." SynthRun="fifo_generator_1_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
     </Run>
   </Runs>
 </Project>

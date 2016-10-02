@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1475344901">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1475436964">
   <File Type="OPT-DCP" Name="lab1_opt.dcp"/>
   <File Type="ROUTE-STATUS-PB" Name="lab1_route_status.pb"/>
   <File Type="PA-TCL" Name="lab1.tcl"/>
@@ -110,4 +110,5 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="fifo_generator_1"/>
 </GenRun>

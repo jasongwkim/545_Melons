@@ -14,16 +14,16 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18948 
+INFO: Helper process launched with PID 12712 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 306.332 ; gain = 99.035
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 307.328 ; gain = 100.355
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'lab1' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:1]
 INFO: [Synth 8-638] synthesizing module 'PCMtoPWM' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/PCMtoPWM.sv:32]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register ack_reg in module PCMtoPWM. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/PCMtoPWM.sv:45]
 WARNING: [Synth 8-5788] Register PCM_ctr_reg in module PCMtoPWM is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/PCMtoPWM.sv:58]
 WARNING: [Synth 8-5788] Register out_reg in module PCMtoPWM is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/PCMtoPWM.sv:46]
 INFO: [Synth 8-256] done synthesizing module 'PCMtoPWM' (1#1) [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/PCMtoPWM.sv:32]
+WARNING: [Synth 8-689] width (8) of port connection 'PCM_data' does not match port width (16) of module 'PCMtoPWM' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:49]
 INFO: [Synth 8-638] synthesizing module 'sd_controller' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/sd_controller.v:6]
 	Parameter RST bound to: 0 - type: integer 
 	Parameter INIT bound to: 32'sb00000000000000000000000000000001 
@@ -47,24 +47,23 @@ INFO: [Synth 8-638] synthesizing module 'sd_controller' [C:/Users/bradp/OneDrive
 	Parameter WRITE_DATA_SIZE bound to: 515 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/sd_controller.v:79]
 INFO: [Synth 8-256] done synthesizing module 'sd_controller' (2#1) [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/sd_controller.v:6]
-WARNING: [Synth 8-689] width (1) of port connection 'status' does not match port width (5) of module 'sd_controller' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:51]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:78]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:102]
-WARNING: [Synth 8-5788] Register clk_div_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:55]
-WARNING: [Synth 8-5788] Register vga_clk_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:45]
-WARNING: [Synth 8-5788] Register index_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:36]
-WARNING: [Synth 8-5788] Register count_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:33]
-WARNING: [Synth 8-5788] Register cycle_count_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:75]
-WARNING: [Synth 8-5788] Register B_STATE_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:78]
-WARNING: [Synth 8-5788] Register v_count_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:113]
-WARNING: [Synth 8-5788] Register h_count_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:114]
+WARNING: [Synth 8-689] width (1) of port connection 'status' does not match port width (5) of module 'sd_controller' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:54]
+INFO: [Synth 8-638] synthesizing module 'fifo_generator_1' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.runs/synth_1/.Xil/Vivado-19832-DESKTOP-4Q1GBRI/realtime/fifo_generator_1_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'fifo_generator_1' (3#1) [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.runs/synth_1/.Xil/Vivado-19832-DESKTOP-4Q1GBRI/realtime/fifo_generator_1_stub.v:6]
+WARNING: [Synth 8-689] width (8) of port connection 'din' does not match port width (16) of module 'fifo_generator_1' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:55]
+WARNING: [Synth 8-689] width (8) of port connection 'dout' does not match port width (16) of module 'fifo_generator_1' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:56]
+WARNING: [Synth 8-689] width (14) of port connection 'data_count' does not match port width (10) of module 'fifo_generator_1' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:57]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:87]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:111]
+WARNING: [Synth 8-5788] Register clk_div_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:62]
+WARNING: [Synth 8-5788] Register B_STATE_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:87]
+WARNING: [Synth 8-5788] Register sd_re_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:51]
+WARNING: [Synth 8-5788] Register fifo_rd_en_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:56]
+WARNING: [Synth 8-5788] Register fifo_din_reg in module lab1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:55]
 WARNING: [Synth 8-3848] Net SD_CD in module/entity lab1 does not have driver. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:5]
 WARNING: [Synth 8-3848] Net UART_RXD_OUT in module/entity lab1 does not have driver. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:7]
 WARNING: [Synth 8-3848] Net UART_CTS in module/entity lab1 does not have driver. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:7]
-WARNING: [Synth 8-3848] Net sd_re in module/entity lab1 does not have driver. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:14]
-WARNING: [Synth 8-3848] Net sd_addr in module/entity lab1 does not have driver. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:21]
-WARNING: [Synth 8-3848] Net pcm_valid in module/entity lab1 does not have driver. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:13]
-INFO: [Synth 8-256] done synthesizing module 'lab1' (3#1) [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:1]
+INFO: [Synth 8-256] done synthesizing module 'lab1' (4#1) [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:1]
 WARNING: [Synth 8-3917] design lab1 has port AN[7] driven by constant 1
 WARNING: [Synth 8-3917] design lab1 has port AN[6] driven by constant 1
 WARNING: [Synth 8-3917] design lab1 has port AN[5] driven by constant 1
@@ -83,7 +82,7 @@ WARNING: [Synth 8-3331] design lab1 has unconnected port UART_RTS
 WARNING: [Synth 8-3331] design lab1 has unconnected port SD_RESET
 WARNING: [Synth 8-3331] design lab1 has unconnected port SW[1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 343.551 ; gain = 136.254
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 343.641 ; gain = 136.668
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -92,53 +91,21 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin PtP:PCM_valid to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:45]
-WARNING: [Synth 8-3295] tying undriven pin sdc:rd to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[31] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[30] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[29] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[28] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[27] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[26] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[25] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[24] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[23] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[22] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[21] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[20] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[19] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[18] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[17] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[16] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[15] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[14] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[13] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[12] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[11] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[10] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[9] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[8] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[7] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[6] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[5] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[4] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[3] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[2] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[1] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
-WARNING: [Synth 8-3295] tying undriven pin sdc:address[0] to constant 0 [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:47]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 343.551 ; gain = 136.254
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 343.641 ; gain = 136.668
 ---------------------------------------------------------------------------------
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'fifo_generator_1' instantiated as 'pwm_buffer' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:55]
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.runs/synth_1/.Xil/Vivado-19832-DESKTOP-4Q1GBRI/dcp/fifo_generator_1_in_context.xdc] for cell 'pwm_buffer'
+Finished Parsing XDC File [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.runs/synth_1/.Xil/Vivado-19832-DESKTOP-4Q1GBRI/dcp/fifo_generator_1_in_context.xdc] for cell 'pwm_buffer'
 Parsing XDC File [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Nexys4DDR_Master.xdc]
 WARNING: [Vivado 12-584] No ports matched 'AUD_SD'. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Nexys4DDR_Master.xdc:214]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Nexys4DDR_Master.xdc:214]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Nexys4DDR_Master.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Nexys4DDR_Master.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/lab1_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/lab1_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/lab1_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
@@ -146,22 +113,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 650.887 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 651.961 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
@@ -172,10 +139,10 @@ INFO: [Synth 8-5546] ROM "ready_for_next_byte" won't be mapped to RAM because it
 INFO: [Synth 8-5546] ROM "bit_counter" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "return_state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "return_state" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:82]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:91]
 INFO: [Synth 8-5546] ROM "index" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -188,37 +155,37 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     24 Bit       Adders := 2     
-	   2 Input     10 Bit       Adders := 3     
-	   2 Input      8 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 4     
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
 	               56 Bit    Registers := 1     
-	               24 Bit    Registers := 2     
-	               10 Bit    Registers := 3     
-	                8 Bit    Registers := 5     
+	               32 Bit    Registers := 2     
+	               16 Bit    Registers := 3     
+	               10 Bit    Registers := 4     
+	                8 Bit    Registers := 4     
 	                5 Bit    Registers := 2     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 8     
+	                1 Bit    Registers := 12    
 +---Muxes : 
 	   8 Input     56 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 2     
-	   2 Input     24 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 4     
+	   5 Input     16 Bit        Muxes := 1     
 	  20 Input     10 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 5     
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 2     
 	  20 Input      5 Bit        Muxes := 2     
 	   2 Input      5 Bit        Muxes := 2     
 	   3 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 9     
+	   2 Input      4 Bit        Muxes := 5     
 	  20 Input      3 Bit        Muxes := 5     
 	   2 Input      3 Bit        Muxes := 3     
-	   5 Input      3 Bit        Muxes := 1     
 	  20 Input      2 Bit        Muxes := 4     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 20    
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 21    
 	  20 Input      1 Bit        Muxes := 8     
 	   4 Input      1 Bit        Muxes := 4     
 	   5 Input      1 Bit        Muxes := 3     
@@ -233,36 +200,37 @@ Hierarchical RTL Component report
 Module lab1 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     24 Bit       Adders := 2     
-	   2 Input     10 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 2     
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
-	               24 Bit    Registers := 2     
-	               10 Bit    Registers := 1     
+	               32 Bit    Registers := 2     
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 2     
-	   2 Input     24 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 1     
+	   5 Input     16 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 8     
-	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 4     
 	   2 Input      3 Bit        Muxes := 2     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 7     
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 8     
 Module PCMtoPWM 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      8 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 4     
+	   2 Input     16 Bit        Muxes := 4     
 	   2 Input      1 Bit        Muxes := 1     
 Module sd_controller 
 Detailed RTL Component Info : 
@@ -301,7 +269,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 650.887 ; gain = 443.590
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -314,7 +282,6 @@ INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "boot_counter" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "state" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "ready_for_next_byte" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "index" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "index" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3917] design lab1 has port CB driven by constant 0
 WARNING: [Synth 8-3917] design lab1 has port CC driven by constant 0
@@ -337,9 +304,9 @@ WARNING: [Synth 8-3331] design lab1 has unconnected port UART_RTS
 WARNING: [Synth 8-3331] design lab1 has unconnected port SD_RESET
 WARNING: [Synth 8-3331] design lab1 has unconnected port SW[1]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Parallel Reinference  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 651.961 ; gain = 444.988
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -349,6 +316,77 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[0]' (FDCE) to 'sd_addr_reg[1]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[1]' (FDCE) to 'sd_addr_reg[2]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[2]' (FDCE) to 'sd_addr_reg[3]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[3]' (FDCE) to 'sd_addr_reg[4]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[4]' (FDCE) to 'sd_addr_reg[5]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[5]' (FDCE) to 'sd_addr_reg[6]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[6]' (FDCE) to 'sd_addr_reg[7]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[7]' (FDCE) to 'sd_addr_reg[8]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[8]' (FDCE) to 'sd_addr_reg[9]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[9]' (FDCE) to 'sd_addr_reg[10]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[10]' (FDCE) to 'sd_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[11]' (FDCE) to 'sd_addr_reg[12]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[12]' (FDCE) to 'sd_addr_reg[13]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[13]' (FDCE) to 'sd_addr_reg[14]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[14]' (FDCE) to 'sd_addr_reg[15]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[15]' (FDCE) to 'sd_addr_reg[16]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[16]' (FDCE) to 'sd_addr_reg[17]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[17]' (FDCE) to 'sd_addr_reg[18]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[18]' (FDCE) to 'sd_addr_reg[19]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[19]' (FDCE) to 'sd_addr_reg[20]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[20]' (FDCE) to 'sd_addr_reg[21]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[21]' (FDCE) to 'sd_addr_reg[22]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[22]' (FDCE) to 'sd_addr_reg[23]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[23]' (FDCE) to 'sd_addr_reg[24]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[24]' (FDCE) to 'sd_addr_reg[25]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[25]' (FDCE) to 'sd_addr_reg[26]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[26]' (FDCE) to 'sd_addr_reg[27]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[27]' (FDCE) to 'sd_addr_reg[28]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[28]' (FDCE) to 'sd_addr_reg[29]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[29]' (FDCE) to 'sd_addr_reg[30]'
+INFO: [Synth 8-3886] merging instance 'sd_addr_reg[30]' (FDCE) to 'sd_addr_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sd_addr_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[14] )
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[17]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[16]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[19]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[18]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[23]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[22]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[21]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[20]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[29]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[28]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[31]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[30]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[25]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[24]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[27]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[26]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[3]' (FDE) to 'B_STATE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[1]' (FDE) to 'B_STATE_reg[2]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[2]' (FDE) to 'B_STATE_reg[4]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[7]' (FDE) to 'B_STATE_reg[4]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[6]' (FDE) to 'B_STATE_reg[4]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[5]' (FDE) to 'B_STATE_reg[4]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[4]' (FDE) to 'B_STATE_reg[8]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[13]' (FDE) to 'B_STATE_reg[8]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[12]' (FDE) to 'B_STATE_reg[8]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[15]' (FDE) to 'B_STATE_reg[8]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[14]' (FDE) to 'B_STATE_reg[8]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[9]' (FDE) to 'B_STATE_reg[8]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[8]' (FDE) to 'B_STATE_reg[10]'
+INFO: [Synth 8-3886] merging instance 'B_STATE_reg[11]' (FDE) to 'B_STATE_reg[10]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/out_retimed_reg )
+INFO: [Synth 8-3886] merging instance 'pcm_valid_reg' (FDC) to 'fifo_wr_en_reg'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[2] )
@@ -357,42 +395,19 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[5] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[6] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/PCM_reg_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/ack_reg )
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[17]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[16]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[19]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[18]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[23]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[22]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[21]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[20]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[29]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[28]' (FDE) to 'B_STATE_reg[31]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[31]' (FDE) to 'B_STATE_reg[30]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[30]' (FDE) to 'B_STATE_reg[27]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[25]' (FDE) to 'B_STATE_reg[27]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[24]' (FDE) to 'B_STATE_reg[27]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[27]' (FDE) to 'B_STATE_reg[26]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[26]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[3]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[1]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[2]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[7]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[6]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[5]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[4]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[13]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[12]' (FDE) to 'B_STATE_reg[15]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[15]' (FDE) to 'B_STATE_reg[14]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[14]' (FDE) to 'B_STATE_reg[11]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[9]' (FDE) to 'B_STATE_reg[11]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[8]' (FDE) to 'B_STATE_reg[11]'
-INFO: [Synth 8-3886] merging instance 'B_STATE_reg[11]' (FDE) to 'B_STATE_reg[10]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PtP/out_retimed_reg )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PtP/PCM_reg_reg[15] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (PtPi_1)
 WARNING: [Synth 8-3332] Sequential element (PtP/out_retimed_reg) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtPi_1) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/ack_reg) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[15]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[14]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[13]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[12]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[11]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[10]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[9]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[8]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[7]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[6]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[5]) is unused and will be removed from module lab1.
@@ -401,6 +416,14 @@ WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[3]) is unused and wi
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[2]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[1]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_reg_reg[0]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[15]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[14]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[13]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[12]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[11]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[10]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[9]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[8]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[7]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[6]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[5]) is unused and will be removed from module lab1.
@@ -409,23 +432,12 @@ WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[3]) is unused and wi
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[2]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[1]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (PtP/PCM_ctr_reg[0]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/recv_data_reg[7]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/recv_data_reg[6]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/recv_data_reg[5]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/recv_data_reg[4]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/recv_data_reg[3]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/recv_data_reg[2]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/recv_data_reg[1]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[7]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[6]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[5]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[4]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[3]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[2]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[1]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/dout_reg[0]) is unused and will be removed from module lab1.
-WARNING: [Synth 8-3332] Sequential element (sdc/byte_available_reg) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (sdc/ready_for_next_byte_reg) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (pcm_valid_reg) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (pcm_valid_reg__0) is unused and will be removed from module lab1.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'pcm_valid_reg__0/Q' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:48]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:48]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv:48]
 WARNING: [Synth 8-3332] Sequential element (B_STATE_reg[31]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (B_STATE_reg[30]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (B_STATE_reg[29]) is unused and will be removed from module lab1.
@@ -456,10 +468,75 @@ WARNING: [Synth 8-3332] Sequential element (B_STATE_reg[4]) is unused and will b
 WARNING: [Synth 8-3332] Sequential element (B_STATE_reg[3]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (B_STATE_reg[2]) is unused and will be removed from module lab1.
 WARNING: [Synth 8-3332] Sequential element (B_STATE_reg[1]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[31]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[30]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[29]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[28]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[27]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[26]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[25]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[24]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[23]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[22]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[21]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[20]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[19]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[18]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[17]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[16]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[15]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[14]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[13]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[12]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[11]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[10]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[9]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[8]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[7]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[6]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[5]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[4]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[3]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[2]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[1]) is unused and will be removed from module lab1.
+WARNING: [Synth 8-3332] Sequential element (sd_addr_reg[0]) is unused and will be removed from module lab1.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[21]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[18]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[28]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[29]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[20]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[11]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[19]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[12]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[26]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[17]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[25]' (FDCE) to 'i_5/addr_count_reg[10]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[10]' (FDCE) to 'i_5/addr_count_reg[13]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[24]' (FDCE) to 'i_5/addr_count_reg[13]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[30]' (FDCE) to 'i_5/addr_count_reg[13]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[14]' (FDCE) to 'i_5/addr_count_reg[13]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[13]' (FDCE) to 'i_5/addr_count_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[27]' (FDCE) to 'i_5/addr_count_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[16]' (FDCE) to 'i_5/addr_count_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[23]' (FDCE) to 'i_5/addr_count_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[22]' (FDCE) to 'i_5/addr_count_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_5/addr_count_reg[15]' (FDCE) to 'i_5/addr_count_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_5/\addr_count_reg[31] )
+INFO: [Synth 8-3886] merging instance 'i_5/cycle_count_reg[18]' (FDC) to 'i_5/cycle_count_reg[19]'
+INFO: [Synth 8-3886] merging instance 'i_5/cycle_count_reg[23]' (FDC) to 'i_5/cycle_count_reg[19]'
+INFO: [Synth 8-3886] merging instance 'i_5/cycle_count_reg[21]' (FDC) to 'i_5/cycle_count_reg[19]'
+INFO: [Synth 8-3886] merging instance 'i_5/cycle_count_reg[19]' (FDC) to 'i_5/cycle_count_reg[20]'
+INFO: [Synth 8-3886] merging instance 'i_5/cycle_count_reg[22]' (FDC) to 'i_5/cycle_count_reg[20]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_5/\cycle_count_reg[20] )
+INFO: [Synth 8-3886] merging instance 'i_5/v_count_reg[21]' (FDC) to 'i_5/v_count_reg[23]'
+INFO: [Synth 8-3886] merging instance 'i_5/v_count_reg[20]' (FDC) to 'i_5/v_count_reg[23]'
+INFO: [Synth 8-3886] merging instance 'i_5/v_count_reg[22]' (FDC) to 'i_5/v_count_reg[23]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_5/\v_count_reg[23] )
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 651.961 ; gain = 444.988
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -473,10 +550,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 651.961 ; gain = 444.988
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -488,16 +565,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 657.613 ; gain = 450.641
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -514,7 +591,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -527,7 +604,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -539,71 +616,73 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+-----------------+----------+
+|      |BlackBox name    |Instances |
++------+-----------------+----------+
+|1     |fifo_generator_1 |         1|
++------+-----------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |BUFG   |     2|
-|2     |CARRY4 |    19|
-|3     |LUT1   |    78|
-|4     |LUT2   |    43|
-|5     |LUT3   |    38|
-|6     |LUT4   |    69|
-|7     |LUT5   |    49|
-|8     |LUT6   |   100|
-|9     |FDCE   |    66|
-|10    |FDRE   |   111|
-|11    |FDSE   |    16|
-|12    |IBUF   |     5|
-|13    |OBUF   |    43|
-|14    |OBUFT  |     3|
-+------+-------+------+
++------+-----------------+------+
+|      |Cell             |Count |
++------+-----------------+------+
+|1     |fifo_generator_1 |     1|
+|2     |BUFG             |     2|
+|3     |CARRY4           |    20|
+|4     |LUT1             |    33|
+|5     |LUT2             |    30|
+|6     |LUT3             |    50|
+|7     |LUT4             |    73|
+|8     |LUT5             |    91|
+|9     |LUT6             |    80|
+|10    |FDCE             |    86|
+|11    |FDRE             |   137|
+|12    |FDSE             |    16|
+|13    |IBUF             |     5|
+|14    |OBUF             |    43|
+|15    |OBUFT            |     3|
++------+-----------------+------+
 
 Report Instance Areas: 
 +------+---------+--------------+------+
 |      |Instance |Module        |Cells |
 +------+---------+--------------+------+
-|1     |top      |              |   642|
-|2     |  sdc    |sd_controller |   345|
+|1     |top      |              |   697|
+|2     |  sdc    |sd_controller |   382|
 +------+---------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 86 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 650.887 ; gain = 114.477
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 650.887 ; gain = 443.590
+Synthesis finished with 0 errors, 3 critical warnings and 160 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:25 . Memory (MB): peak = 657.613 ; gain = 112.117
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 657.613 ; gain = 450.641
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 25 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -611,8 +690,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-84 Infos, 155 Warnings, 2 Critical Warnings and 0 Errors encountered.
+158 Infos, 155 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 650.887 ; gain = 425.313
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 650.887 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Oct 01 14:02:15 2016...
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 657.613 ; gain = 424.879
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 657.613 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 02 15:36:42 2016...

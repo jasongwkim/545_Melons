@@ -13,6 +13,8 @@ set_property webtalk.parent_dir C:/Users/bradp/OneDrive/Documents/GitHub/545_Mel
 set_property parent.project_path C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+add_files -quiet c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.dcp
+set_property used_in_implementation false [get_files c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.dcp]
 read_verilog -library xil_defaultlib -sv {
   C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/new/PCMtoPWM.sv
   C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab1/lab1_alter.sv

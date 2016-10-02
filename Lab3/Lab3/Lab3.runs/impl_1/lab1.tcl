@@ -54,7 +54,14 @@ set rc [catch {
   set_property parent.project_path C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr [current_project]
   set_property ip_repo_paths c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.cache/ip [current_project]
   set_property ip_output_repo c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.cache/ip [current_project]
+  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   add_files -quiet C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.runs/synth_1/lab1.dcp
+  add_files -quiet c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.dcp
+  set_property netlist_only true [get_files c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.dcp]
+  read_xdc -mode out_of_context -ref fifo_generator_1 -cells U0 c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1_ooc.xdc
+  set_property processing_order EARLY [get_files c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1_ooc.xdc]
+  read_xdc -ref fifo_generator_1 -cells U0 c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1/fifo_generator_1.xdc
+  set_property processing_order EARLY [get_files c:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1/fifo_generator_1.xdc]
   read_xdc C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Nexys4DDR_Master.xdc
   link_design -top lab1 -part xc7a100tcsg324-1
   write_hwdef -file lab1.hwdef
