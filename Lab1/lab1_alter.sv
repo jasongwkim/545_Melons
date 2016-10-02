@@ -12,10 +12,13 @@ module lab1(
     
     logic vga_clk, clk_div, pcm_valid, pcm_ack;
     logic sd_re, sd_we, sd_rd_ready, sd_wr_ready, sd_ready, sd_clk;
+    logic fifo_wr_en, fifo_rd_en, fifo_full, fifo_empty, fifo_buf_place;
     logic [1:0] index;
     logic [3:0] count, sd_stat;
-    logic [7:0] pcm_data, sd_out, sd_in;
-    logic [9:0] h_count;
+    logic [7:0] pcm_data, sd_out, sd_in, fifo_dout, fifo_din;
+    logic [9:0] pcm_count, h_count;
+    logic [13:0] fifo_count;
+    logic [15:0] buf_pack;
     logic [23:0] v_count;
     logic [23:0] cycle_count;
     logic [31:0] sd_addr, addr_count;
@@ -43,13 +46,17 @@ module lab1(
     assign VGA_G = (H_STATE == H_DISP) ? count : 0;
     
     PCMtoPWM PtP(.clk(vga_clk), .rst(BTNC), .PCM_valid(pcm_valid), 
-            .PCM_data(sd_out), .PCM_ack(pcm_ack), .PWM(AUD_PWM));
+            .PCM_data(fifo_dout), .PCM_ack(pcm_ack), .PWM(AUD_PWM));
     sd_controller sdc(.cs(SD_DAT[3]), .mosi(SD_CMD), .miso(SD_DAT[0]),
             .sclk(SD_SCK), .rd(sd_re), .wr(sd_we), .reset(BTNU),
-            .din(sd_in), .dout(sd_out), .byte_available(sd_re_ready),
+            .din(sd_in), .dout(sd_out), .byte_available(sd_rd_ready),
             .ready(sd_ready), .address(sd_addr), .clk(vga_clk), 
             .ready_for_next_byte(sd_wr_ready), .status(sd_state));
-        
+    fifo_generator_1 pwm_buffer(.clk(vga_clk), .srst(BTNC), .din(fifo_din), .wr_en(fifo_wr_en),
+              .rd_en(fifo_rd_en), .dout(fifo_dout), .full(fifo_full), .empty(fifo_empty),
+              .data_count(fifo_count));
+    
+    //50MHZ Clock Divider    
     always_ff @(posedge CLK100MHZ, negedge BTNU) begin
         if(BTNU) begin
             clk_div = 0;
@@ -59,6 +66,7 @@ module lab1(
         end
     end
     
+    //25MHZ Clock Divider
     always_ff @(posedge clk_div, negedge BTNU) begin
         if(BTNU) begin
             vga_clk <= 0;
@@ -68,6 +76,7 @@ module lab1(
         end
     end
     
+    //SSD Control FSM
     always_ff @(posedge CLK100MHZ, negedge BTNU) begin
         if(BTNU) begin
             index <= 0;
@@ -107,7 +116,8 @@ module lab1(
             endcase
         end
     end
-     
+    
+    //VGA Control FSM 
     always_ff @(posedge vga_clk, negedge BTNU) begin
         if(BTNU) begin
             v_count <= 0;
@@ -130,33 +140,73 @@ module lab1(
         end
     end
     
+    //SD Control FSM
     always_ff @(posedge vga_clk, negedge BTNU) begin
         if(BTNU) begin
             sd_addr <= 0;
             addr_count <= 0;
             pcm_valid <= 0;
+            fifo_buf_place <= 0;
+            buf_pack <= 0;
         end
         else begin
-            sd_re <= 1;
+            if(fifo_count > 512) begin
+            
+            end
             if(sd_ready) begin
                 if(addr_count >= 511) begin
                     addr_count <= 0;
-                    sd_addr <= sd_addr + 512;
+                    sd_addr <= 0;
+                    if(fifo_count > 512) begin
+                        sd_re <= 0;
+                    end 
+                    else begin
+                        sd_re <= 1;
+                    end
                 end
                 else begin
                     if(sd_rd_ready) begin
                         addr_count <= addr_count + 1;
-                        pcm_valid <= 1;
+                        if(~fifo_buf_place) begin
+                            buf_pack[7:0] <= sd_out; 
+                        end
+                        else begin
+                            buf_pack[15:8] <= sd_out;
+                            fifo_rd_en <= 1;
+                            fifo_din <= (sd_re) ? buf_pack : 0;
+                        end
+                        fifo_buf_place = ~fifo_buf_place;
                     end
                     else begin
-                        pcm_valid <= 0;
-                    end        
-                    
+                        fifo_rd_en <= 0;
+                    end       
                 end
             end
         end
     end
     
+    always_ff @(posedge vga_clk, negedge BTNU) begin
+        if(BTNU) begin
+            fifo_wr_en <= 0;
+            pcm_valid <= 0;
+            pcm_count <= 0;
+        end
+        else begin
+            
+            if(pcm_count >= 566) begin
+                pcm_count <= 0;
+                pcm_valid <= 1;
+                fifo_wr_en <= 1;
+            end
+            else begin
+                pcm_count <= pcm_count + 1;
+                pcm_valid <= 0;  
+                fifo_wr_en <= 0;              
+            end
+        end
+    end
+    
+    //VGA State Control
     always_comb begin
         if(v_count < 7999) begin
             V_STATE = V_FRONT;
