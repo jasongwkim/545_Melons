@@ -150,9 +150,6 @@ module lab1(
             buf_pack <= 0;
         end
         else begin
-            if(fifo_count > 512) begin
-            
-            end
             if(sd_ready) begin
                 if(addr_count >= 511) begin
                     addr_count <= 0;
