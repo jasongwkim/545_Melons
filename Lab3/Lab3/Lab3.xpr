@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="14" Path="C:/Users/bradp/OneDrive/Documents/GitHub/545_Melons/Lab3/Lab3/Lab3.xpr">
+<Project Version="7" Minor="14" Path="C:/Workspace/545_Melons/Lab3/Lab3/Lab3.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="2707cc89a5184832af9afff666a7374f"/>
@@ -20,11 +20,12 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="XPMLibraries" Val="XPM_MEMORY"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
     <Option Name="IPUserFilesDir" Val="$PPRDIR/Lab3.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/Lab3.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="0"/>
+    <Option Name="WTXSimLaunchSim" Val="1"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -100,25 +101,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1.vho"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1.veo"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_sim_netlist.v"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_stub.v"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_sim_netlist.vhdl"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_stub.vhdl"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1.xml"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1/fifo_generator_1.xdc"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="doc/fifo_generator_v13_1_changelog.txt"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_1_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="blk_mem_gen_v8_3_3/hdl/blk_mem_gen_v8_3_vhsyn_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="synth/fifo_generator_1.vhd"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1.vhd"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="blk_mem_gen_v8_3_3/hdl/blk_mem_gen_v8_3.vhd"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1_vhsyn_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1_rfs.v"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/hdl/fifo_generator_v13_1_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="sim/fifo_generator_1.v"/>
-        <CompFileExtendedInfo CompFileName="fifo_generator_1.xci" FileRelPathName="fifo_generator_v13_1_1/simulation/fifo_generator_vlog_beh.v"/>
       </File>
       <Config>
         <Option Name="TopModule" Val="fifo_generator_1"/>
@@ -160,9 +142,7 @@
     </Run>
     <Run Id="fifo_generator_1_synth_1" Type="Ft3:Synth" SrcSet="fifo_generator_1" Part="xc7a100tcsg324-1" ConstrsSet="fifo_generator_1" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/fifo_generator_1_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -184,9 +164,7 @@
     </Run>
     <Run Id="fifo_generator_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="fifo_generator_1" Description="Default settings for Implementation." SynthRun="fifo_generator_1_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

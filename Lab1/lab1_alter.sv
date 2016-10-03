@@ -4,7 +4,7 @@ module lab1(
     input [1:0] SW,
     output SD_SCK, SD_CMD, SD_CD,
     output CA,CB,CC,CD,CE,CF,CG,
-    output VGA_HS, VGA_VS, UART_RXD_OUT, UART_CTS, AUD_PWM,
+    output VGA_HS, VGA_VS, UART_RXD_OUT, UART_CTS, AUD_PWM, AUD_SD,
     output [3:0] VGA_R, VGA_B, VGA_G,
     output [7:0] AN, LED,
     inout [3:0] SD_DAT  
@@ -27,6 +27,7 @@ module lab1(
     enum {V_PULSE, V_FRONT, V_DISP, V_BACK} V_STATE;
     enum {H_PULSE, H_FRONT, H_DISP, H_BACK} H_STATE; 
     
+    assign AUD_SD = 1;
     assign sd_we = 0;
     assign sd_wr_ready = 0;
     assign sd_in = 0;

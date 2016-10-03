@@ -45,31 +45,53 @@ module PCMtoPWM(
     assign PCM_ack = ack;
     assign PWM=out;
     
-    always_ff@(posedge clk, posedge PCM_valid, negedge rst) begin
-        //reset configures ack to 0 ,sets silence
+    enum{RST, SET_PWM, OUT_PWM} state, nextState;
+    
+    always_comb begin
         if(~rst) begin
-            ack <= 1'b0;
-            PCM_reg <= 16'b1000000000000000;
+            nextState = RST;
         end
         //received valid pcm signal anc we haven't acknowledged it
-        else if (PCM_valid) begin
-            ack <=1'b1;
-            PCM_reg <= PCM_data;
-            PCM_ctr <= 0;
-        end
+        else if(PCM_valid) begin
+            nextState = SET_PWM;
+        end 
         //outputting pwm
         //Z activates the PWM, 0 deactivates
         //note this isn't connected directly to the chip output
         else begin
-            ack <= 1'b0;
-            PCM_ctr <= PCM_ctr + 1;
-            if(PCM_ctr < PCM_reg) begin
-                out <= 1'bz;
-            end
-            else begin
-                out <= 1'b0;
-            end
+            nextState = OUT_PWM;
         end
-    end            
-
+    end 
+    
+    always_ff@(posedge clk) begin
+        //reset configures ack to 0 ,sets silence
+        state <= nextState;
+        case(state)
+            OUT_PWM: begin
+                ack <= 1'b0;
+                PCM_ctr <= PCM_ctr + 16'd1;
+                if(PCM_ctr < PCM_reg) begin
+                    out <= 1'bz;
+                end
+                else begin
+                    out <= 1'b0;
+                end
+            end
+            SET_PWM: begin
+                ack<=1'b1;
+                PCM_ctr <= 16'b1000000000000000;
+                PCM_reg <= PCM_data;
+            end
+            RST: begin
+                ack <= 1'b0;
+                PCM_reg <= 16'b1000000000000000;
+                PCM_ctr <= 16'b1000000000000000;
+            end
+            default: begin
+                ack <= 1'b0;
+                PCM_reg <= 16'b1000000000000000;
+                PCM_ctr <= 16'b1000000000000000;
+            end
+        endcase
+    end
 endmodule
