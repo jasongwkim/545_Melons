@@ -63,7 +63,7 @@ module PCMtoPWM(
         end
     end 
     
-    always_ff@(posedge clk, posedge PCM_valid, negedge rst) begin
+    always_ff@(posedge clk) begin
         //reset configures ack to 0 ,sets silence
         state <= nextState;
         case(state)
@@ -71,7 +71,7 @@ module PCMtoPWM(
                 ack <= 1'b0;
                 PCM_ctr <= PCM_ctr + 16'd1;
                 if(PCM_ctr < PCM_reg) begin
-                    out <= 1'bz;
+                    out <= 1'b1;
                 end
                 else begin
                     out <= 1'b0;
