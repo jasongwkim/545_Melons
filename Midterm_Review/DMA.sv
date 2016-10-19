@@ -22,7 +22,7 @@
 
 module DMA(
     input logic clk, rst_n,
-    input logic Z80_rd, Z80_wr,
+    input logic Z80_rd, Z80_wr, Z80_mreq,
     input logic M68_rw, M68_as, M68_lds, M68_uds,   
     input logic [7:0] RAM_data_out,
     input logic [15:0] Z80_addr, M68_data_out,
@@ -56,22 +56,43 @@ module DMA(
                             state <= M68_READ;    
                         end
                         else begin
-                            RAM_en <= 1;
-                            RAM_we <= 1;
+                            if(M68_addr == 24'hC00000) begin
+                                VDP_data <= M68_data_out;
+                            end
+                            else if(M68_addr == 24'hC00004) begin
+                                VDP_control <= M68_data_out;
+                            end
+                            else begin
+                                RAM_en <= 1;
+                                RAM_we <= 1;
+                                RAM_data_in <= M68_data_out;
+                                RAM_addr <= M68_addr;
+                            end 
                             state <= M68_WRITE;    
                         end
                     end
-                    else if(!Z80_rd) begin
-                        RAM_en <= 1;
-                        RAM_we <= 0;
-                        RAM_addr <= Z80_addr;
-                        state <= Z80_READ;  
-                    end
-                    else if(!Z80_wr) begin
-                        RAM_en <= 1;
-                        RAM_we <= 1;
-                        RAM_addr <= Z80_addr;
-                        state <= Z80_WRITE;
+                    if(!Z80_mreq) begin
+                        if(!Z80_rd) begin
+                            RAM_en <= 1;
+                            RAM_we <= 0;
+                            RAM_addr <= Z80_addr;
+                            state <= Z80_READ;  
+                        end
+                        else if(!Z80_wr) begin
+                            if(M68_addr == 24'hC00000) begin
+                                VDP_data <= Z80_data;
+                            end
+                            else if(M68_addr == 24'hC00004) begin
+                                VDP_control <= Z80_data;
+                            end
+                            else begin
+                                RAM_en <= 1;
+                                RAM_we <= 1;
+                                RAM_data_in <= Z80_data;
+                                RAM_addr <= Z80_addr;
+                            end
+                            state <= Z80_WRITE;
+                        end
                     end
                 end
                 M68_READ: begin
@@ -86,10 +107,16 @@ module DMA(
                 Z80_READ: begin
                     Z80_local <= RAM_data_out;
                     RAM_en <= 0;
+                    state <= IDLE;
                 end    
                 Z80_WRITE: begin
                     RAM_en <= 0;
+                    state <= IDLE;
                 end    
+                HOLD: begin
+                    M68_dtack <= 0;
+                    state <= IDLE;
+                end
             endcase
             
         end
