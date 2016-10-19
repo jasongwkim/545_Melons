@@ -48,7 +48,7 @@ module DMA(
             case(state)
                 IDLE: begin
                     if(!M68_as) begin
-                        RAM_addr <= M68_addr;
+                        RAM_addr <= M68_addr[16:0];
                         M68_dtack <= 1;
                         if(M68_rw) begin
                             RAM_en <= 1;
