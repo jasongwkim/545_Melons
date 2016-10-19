@@ -57,9 +57,11 @@ module DMA(
                         end
                         else begin
                             if(M68_addr == 24'hC00000) begin
+                                VDP_data_rw <= 0;
                                 VDP_data <= M68_data_out;
                             end
                             else if(M68_addr == 24'hC00004) begin
+                                VDP_control <= 0;
                                 VDP_control <= M68_data_out;
                             end
                             else begin
@@ -80,9 +82,11 @@ module DMA(
                         end
                         else if(!Z80_wr) begin
                             if(M68_addr == 24'hC00000) begin
+                                VDP_data_rw <= 0;
                                 VDP_data <= Z80_data;
                             end
                             else if(M68_addr == 24'hC00004) begin
+                                VDP_control_rw <= 0;
                                 VDP_control <= Z80_data;
                             end
                             else begin
@@ -96,6 +100,8 @@ module DMA(
                     end
                 end
                 M68_READ: begin
+                    VDP_data_rw <= 1;
+                    VDP_control_rw <= 1;
                     M68_data_in <= RAM_data_out;
                     RAM_en <= 0;
                     state <= HOLD;
@@ -105,6 +111,8 @@ module DMA(
                     state <= HOLD;
                 end    
                 Z80_READ: begin
+                    VDP_data_rw <= 1;
+                    VDP_control_rw <= 1;
                     Z80_local <= RAM_data_out;
                     RAM_en <= 0;
                     state <= IDLE;
