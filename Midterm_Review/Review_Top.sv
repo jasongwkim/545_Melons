@@ -36,12 +36,34 @@ module demo ();
         nNMI <= 1'b1;
         nBUSRQ <= 1'b1;
         @(posedge clk);
-        rst_n <= 1'b1;
-        @(posedge clk);
         //Memory should look like this in Z80 address space
-        //0000     0001     0002    
-        //3E       9A       77
-        //00111110 10011010 01110111
+        //0000     0001     0002     0003     0004     0005     0006
+        //00000110 10011010 00100110 10000000 00101110 00000000 01110000
+        ena <= 1'b1;
+        wea <= 1'b1;
+        addra <= 17'b10000000000000000;
+        dina <= 8'b00000110;
+        @(posedge clk);
+        addra <= 17'b10000000000000001;
+        dina <= 8'b10011010;
+        @(posedge clk);
+        addra <= 17'b10000000000000010;
+        dina <= 8'b00100110;
+        @(posedge clk);
+        addra <= 17'b10000000000000011;
+        dina <= 8'b10000000;
+        @(posedge clk);
+        addra <= 17'b10000000000000100;
+        dina <= 8'b00101110;
+        @(posedge clk);
+        addra <= 17'b10000000000000101;
+        dina <= 8'b00000000;
+        @(posedge clk);
+        addra <= 17'b10000000000000110;
+        dina <= 8'b01110000;
+        @(posedge clk);
+        //Keep setting up memory as needed before un-resetting
+        rst_n <= 1'b1;
     end
                 
 endmodule
