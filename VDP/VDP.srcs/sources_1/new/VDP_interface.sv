@@ -28,7 +28,12 @@ interface VDP_int (input clk, srst);
 endinterface
 
 
-module VDP(VDP_int bus);
+module VDP(
+    input  logic clk, srst,
+    input  logic [15:0] data,
+    input  logic [15:0] control,
+    output logic [15:0] HV_counter,
+    input  logic dataRW_, controlRW);
     
     enum logic [3:0] {READ, WRITE1, WRITE2_1,WRITE2_2, WRITE2_3} control_state, next_control_state;
     //Note: Write1 is reg. Write2 is memory
