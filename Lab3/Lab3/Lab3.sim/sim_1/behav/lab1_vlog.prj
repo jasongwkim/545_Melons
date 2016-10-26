@@ -1,8 +1,0 @@
-# compile verilog/system verilog design source files
-sv xil_defaultlib  "../../../../../Lab1/lab1_alter.sv"
-
-# compile glbl module
-verilog xil_defaultlib "glbl.v"
-
-# Do not sort compile order
-nosort
