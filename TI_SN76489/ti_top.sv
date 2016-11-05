@@ -25,6 +25,7 @@ module ti_top(
     input logic [7:0] D,
     output logic READY, AOUT);
     
+    logic [3:0] clkDivider;
     logic [3:0] vol0, vol1, vol2, vol3;
     logic [9:0] tone0, tone1, tone2;
     logic [2:0] noise;
@@ -33,6 +34,9 @@ module ti_top(
     
     logic [5:0] storeD;
     
+    logic [9:0] counter0, counter1, counter2, counter3;
+    logic ch0out, ch1out, ch2out, ch3out;
+    
     enum logic [1:0] {
         INIT, LATCH, DATA
     } state, nextState;
@@ -40,9 +44,38 @@ module ti_top(
     always_ff @(posedge CLK) begin
         if (~nRST) begin
             state <= INIT;
+            clkDivider <= 0;
+            counter0 <= 0;
+            counter1 <= 0;
+            counter2 <= 0;
+            counter3 <= 0;
         end
         else begin
-            state <= nextState;
+            if (clkDivider == 0) begin
+                state <= nextState;
+                if (counter0 == 0) begin
+                    counter0 <= tone0;
+                    counter1 <= tone1;
+                    counter2 <= tone2;
+                    case (noise[1:0])
+                        2'b00: counter3 <= 10'b0000010000;
+                        2'b01: counter3 <= 10'b0000100000;
+                        2'b10: counter3 <= 10'b0001000000;
+                        2'b11: counter3 <= tone2;
+                    endcase
+                    ch0out <= ~ch0out;
+                    ch1out <= ~ch1out;
+                    ch2out <= ~ch2out;
+                    ch3out <= ~ch3out;
+                end
+                else begin
+                    ch0out <= ch0out - 1;
+                    ch1out <= ch1out - 1;
+                    ch2out <= ch2out - 1;
+                    ch3out <= ch3out - 1;
+                end
+            end
+            clkDivider <= clkDivider + 1;
         end
     end
     
@@ -86,6 +119,7 @@ module ti_top(
                 end
             end
             LATCH: begin
+                READY = 0;
                 case(channel)
                     0: vol0 = storeD[3:0];
                     1: vol1 = storeD[3:0];
@@ -94,6 +128,7 @@ module ti_top(
                 endcase
             end
             DATA: begin
+                READY = 0;
                 case (channel)
                     0: tone0[3:0] = storeD[3:0];
                     1: tone1[3:0] = storeD[3:0];
