@@ -36,10 +36,16 @@ module ti_top(
     
     logic [9:0] counter0, counter1, counter2, counter3;
     logic ch0out, ch1out, ch2out, ch3out;
+    logic [7:0] shiftRegister;
+    logic shift_data_in, shift_data_out;
     
     enum logic [1:0] {
         INIT, LATCH, DATA
     } state, nextState;
+    
+    right_shift_register rsr(.CLK(ch3out), .nRST, .DATA_IN(shift_data_in), .BIT_OUT(shift_data_out), .bitShiftReg(shiftRegister));
+    
+    assign shift_data_in = noise[2] ? (shiftRegister[3] ^ shiftRegister[0]) : shiftRegister[0]; 
     
     always_ff @(posedge CLK) begin
         if (~nRST) begin
@@ -55,23 +61,35 @@ module ti_top(
                 state <= nextState;
                 if (counter0 == 0) begin
                     counter0 <= tone0;
+                    ch0out <= ~ch0out;
+                end
+                else begin
+                    ch0out <= ch0out - 1;
+                end
+                if (counter1 == 0) begin
                     counter1 <= tone1;
+                    ch1out <= ~ch1out;
+                end
+                else begin
+                    ch1out <= ch1out - 1;
+                end
+                if (counter2 == 0) begin
                     counter2 <= tone2;
+                    ch2out <= ~ch2out;
+                end
+                else begin
+                    ch2out <= ch2out - 1;
+                end
+                if (counter3 == 0) begin
                     case (noise[1:0])
                         2'b00: counter3 <= 10'b0000010000;
                         2'b01: counter3 <= 10'b0000100000;
                         2'b10: counter3 <= 10'b0001000000;
                         2'b11: counter3 <= tone2;
                     endcase
-                    ch0out <= ~ch0out;
-                    ch1out <= ~ch1out;
-                    ch2out <= ~ch2out;
                     ch3out <= ~ch3out;
                 end
                 else begin
-                    ch0out <= ch0out - 1;
-                    ch1out <= ch1out - 1;
-                    ch2out <= ch2out - 1;
                     ch3out <= ch3out - 1;
                 end
             end
