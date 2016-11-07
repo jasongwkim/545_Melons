@@ -38,12 +38,16 @@ module ti_top(
     logic ch0out, ch1out, ch2out, ch3out;
     logic [7:0] shiftRegister;
     logic shift_data_in, shift_data_out;
+    logic [14:0] digital_out;
     
     enum logic [1:0] {
         INIT, LATCH, DATA
     } state, nextState;
     
     right_shift_register rsr(.CLK(ch3out), .nRST, .DATA_IN(shift_data_in), .BIT_OUT(shift_data_out), .bitShiftReg(shiftRegister));
+    
+    ti_mixer mix(.CLK, .nRST, .vol0, .vol1, .vol2, .vol3, .ch0out, .ch1out,
+                 .ch2out, .ch3out(shift_data_out), .digital_out);
     
     assign shift_data_in = noise[2] ? (shiftRegister[3] ^ shiftRegister[0]) : shiftRegister[0]; 
     
