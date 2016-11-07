@@ -1,0 +1,59 @@
+{
+   guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port Z80_busack -pg 1 -y 70 -defaultsOSRD
+preplace port Z80_wr -pg 1 -y 130 -defaultsOSRD
+preplace port M68_as -pg 1 -y 190 -defaultsOSRD
+preplace port Z80_mreq -pg 1 -y 150 -defaultsOSRD
+preplace port M68_dtack -pg 1 -y 50 -defaultsOSRD
+preplace port M68_rw -pg 1 -y 170 -defaultsOSRD
+preplace port VDP_control_rw -pg 1 -y 190 -defaultsOSRD
+preplace port Z80_rd -pg 1 -y 110 -defaultsOSRD
+preplace port M68_uds -pg 1 -y 230 -defaultsOSRD
+preplace port M68_lds -pg 1 -y 210 -defaultsOSRD
+preplace port clk -pg 1 -y -70 -defaultsOSRD
+preplace port VDP_data_rw -pg 1 -y 170 -defaultsOSRD
+preplace port rst_n -pg 1 -y -50 -defaultsOSRD
+preplace portBus M68_addr -pg 1 -y 330 -defaultsOSRD
+preplace portBus M68_data_out -pg 1 -y 310 -defaultsOSRD
+preplace portBus VDP_data -pg 1 -y 230 -defaultsOSRD
+preplace portBus Z80_data -pg 1 -y 350 -defaultsOSRD
+preplace portBus M68_data_in -pg 1 -y 330 -defaultsOSRD
+preplace portBus VDP_control -pg 1 -y 250 -defaultsOSRD
+preplace portBus Z80_addr -pg 1 -y 290 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -y 540 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 1 -y 760 -defaultsOSRD
+preplace inst DMA_wrapper_0 -pg 1 -lvl 1 -y 200 -defaultsOSRD
+preplace netloc Z80_addr_1 1 0 1 N
+preplace netloc blk_mem_gen_1_douta 1 0 1 70
+preplace netloc DMA_wrapper_0_Z80_busack 1 1 1 N
+preplace netloc DMA_wrapper_0_RAM_16_en 1 0 2 50 -50 790
+preplace netloc Z80_mreq_1 1 0 1 N
+preplace netloc DMA_wrapper_0_RAM_8_addr 1 0 2 90 400 750
+preplace netloc M68_lds_1 1 0 1 N
+preplace netloc DMA_wrapper_0_RAM_8_en 1 0 2 80 420 810
+preplace netloc DMA_wrapper_0_RAM_16_addr 1 0 2 110 -10 780
+preplace netloc DMA_wrapper_0_VDP_control_rw 1 1 1 N
+preplace netloc Z80_rd_1 1 0 1 N
+preplace netloc M68_data_out_1 1 0 1 N
+preplace netloc rst_n_1 1 0 1 20
+preplace netloc DMA_wrapper_0_VDP_data_rw 1 1 1 N
+preplace netloc DMA_wrapper_0_VDP_control 1 1 1 N
+preplace netloc M68_uds_1 1 0 1 N
+preplace netloc DMA_wrapper_0_RAM_16_we 1 0 2 60 -40 800
+preplace netloc DMA_wrapper_0_RAM_16_data_in 1 0 2 120 0 770
+preplace netloc clk_1 1 0 1 30
+preplace netloc DMA_wrapper_0_M68_data_in 1 1 1 N
+preplace netloc M68_rw_1 1 0 1 N
+preplace netloc DMA_wrapper_0_RAM_8_we 1 0 2 40 -20 750
+preplace netloc blk_mem_gen_0_douta 1 0 1 130
+preplace netloc DMA_wrapper_0_VDP_data 1 1 1 N
+preplace netloc Net 1 1 1 N
+preplace netloc M68_as_1 1 0 1 N
+preplace netloc Z80_wr_1 1 0 1 N
+preplace netloc DMA_wrapper_0_M68_dtack 1 1 1 N
+preplace netloc M68_addr_1 1 0 1 N
+preplace netloc DMA_wrapper_0_RAM_8_data_in 1 0 2 100 410 760
+levelinfo -pg 1 0 570 900 -top -90 -bot 880
+",
+}
