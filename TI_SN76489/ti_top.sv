@@ -39,6 +39,7 @@ module ti_top(
     logic [7:0] shiftRegister;
     logic shift_data_in, shift_data_out;
     logic [14:0] digital_out;
+    logic [5:0] digital_storage, pwm_counter;
     
     enum logic [1:0] {
         INIT, LATCH, DATA
@@ -59,8 +60,17 @@ module ti_top(
             counter1 <= 0;
             counter2 <= 0;
             counter3 <= 0;
+            pwm_counter <= 0;
         end
         else begin
+            if (pwm_counter == 0) begin
+                digital_storage <= digital_out[14:9];
+                AOUT <= 1;
+            end
+            else if (pwm_counter == digital_out[14:9]) begin
+                AOUT <= 0;
+            end
+            pwm_counter <= pwm_counter + 1;
             if (clkDivider == 0) begin
                 state <= nextState;
                 if (counter0 == 0) begin
