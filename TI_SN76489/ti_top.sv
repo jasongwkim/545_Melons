@@ -71,8 +71,8 @@ module ti_top(
                 AOUT <= 0;
             end
             pwm_counter <= pwm_counter + 1;
+            state <= nextState;
             if (clkDivider == 0) begin
-                state <= nextState;
                 if (counter0 == 0) begin
                     counter0 <= tone0;
                     ch0out <= ~ch0out;
@@ -152,21 +152,33 @@ module ti_top(
             end
             LATCH: begin
                 READY = 0;
-                case(channel)
-                    0: vol0 = storeD[3:0];
-                    1: vol1 = storeD[3:0];
-                    2: vol2 = storeD[3:0];
-                    3: vol3 = storeD[3:0];
-                endcase
+                if (latch) begin
+                    case(channel)
+                        0: vol0 = storeD[3:0];
+                        1: vol1 = storeD[3:0];
+                        2: vol2 = storeD[3:0];
+                        3: vol3 = storeD[3:0];
+                    endcase
+                end
+                else begin
+                    case(channel)
+                        0: tone0[3:0] = storeD[3:0];
+                        1: tone1[3:0] = storeD[3:0];
+                        2: tone2[3:0] = storeD[3:0];
+                        3: noise = storeD[2:0];
+                    endcase
+                end
             end
             DATA: begin
                 READY = 0;
-                case (channel)
-                    0: tone0[3:0] = storeD[3:0];
-                    1: tone1[3:0] = storeD[3:0];
-                    2: tone2[3:0] = storeD[3:0];
-                    3: noise = storeD[2:0];
-                endcase    
+                if (~latch) begin
+                    case (channel)
+                        0: tone0[9:4] = storeD[5:0];
+                        1: tone1[9:4] = storeD[5:0];
+                        2: tone2[9:4] = storeD[5:0];
+                        3: noise = storeD[2:0];
+                    endcase   
+                end 
             end
         endcase
     end
