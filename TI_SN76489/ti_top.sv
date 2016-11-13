@@ -52,7 +52,7 @@ module ti_top(
     
     assign shift_data_in = noise[2] ? (shiftRegister[3] ^ shiftRegister[0]) : shiftRegister[0]; 
     
-    always_ff @(posedge CLK) begin
+    always_ff @(posedge CLK, negedge nRST) begin
         if (~nRST) begin
             state <= INIT;
             clkDivider <= 0;
@@ -61,13 +61,25 @@ module ti_top(
             counter2 <= 0;
             counter3 <= 0;
             pwm_counter <= 0;
+            ch0out <= 0;
+            ch1out <= 0;
+            ch2out <= 0;
+            ch3out <= 0;
+            vol0 <= 4'b1111;
+            vol1 <= 4'b1111;
+            vol2 <= 4'b1111;
+            vol3 <= 4'b1111;
+            tone0 <= 10'b1111111111;
+            tone1 <= 10'b1111111111;
+            tone2 <= 10'b1111111111;
+            noise <= 3'b111;
         end
         else begin
             if (pwm_counter == 0) begin
                 digital_storage <= digital_out[14:9];
                 AOUT <= 1;
             end
-            else if (pwm_counter == digital_out[14:9]) begin
+            else if (pwm_counter == digital_storage) begin
                 AOUT <= 0;
             end
             pwm_counter <= pwm_counter + 1;
@@ -78,21 +90,21 @@ module ti_top(
                     ch0out <= ~ch0out;
                 end
                 else begin
-                    ch0out <= ch0out - 1;
+                    counter0 <= counter0 - 1;
                 end
                 if (counter1 == 0) begin
                     counter1 <= tone1;
                     ch1out <= ~ch1out;
                 end
                 else begin
-                    ch1out <= ch1out - 1;
+                    counter1 <= counter1 - 1;
                 end
                 if (counter2 == 0) begin
                     counter2 <= tone2;
                     ch2out <= ~ch2out;
                 end
                 else begin
-                    ch2out <= ch2out - 1;
+                    counter2 <= counter2 - 1;
                 end
                 if (counter3 == 0) begin
                     case (noise[1:0])
@@ -104,7 +116,7 @@ module ti_top(
                     ch3out <= ~ch3out;
                 end
                 else begin
-                    ch3out <= ch3out - 1;
+                    counter3 <= counter3 - 1;
                 end
             end
             clkDivider <= clkDivider + 1;

@@ -13,7 +13,7 @@ module ti_mixer(
     
     logic [16:0] intermediate;
     
-    always_ff @(posedge CLK) begin
+    always_ff @(posedge CLK, negedge nRST) begin
         if (~nRST) begin
             intermediate <= 0;
         end
@@ -25,6 +25,6 @@ module ti_mixer(
         end
     end
     
-    assign digital_out = intermediate;
+    assign digital_out = intermediate[14:0];
 
 endmodule
