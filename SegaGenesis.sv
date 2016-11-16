@@ -11,15 +11,28 @@ module sega_genesis_top(
     logic ti_nWE, ti_nCE, ti_CLK;
     logic [7:0] ti_D;
     logic ti_READY, ti_OUT;
-
+    /*
+    logic [19:0] ctr;
+    logic [1:0] minictr;
+    logic latch;
+    logic pwm_out;
+    */
+    
+    assign AUD_PWM = CPU_RESETN ? ti_OUT : 0;
+    
     ti_top ti(.CLK(ti_CLK), .nRST(CPU_RESETN), .nWE(ti_nWE), .nCE(ti_nCE), .D(ti_D), .READY(ti_READY), .AOUT(ti_OUT));
     
-    assign AUD_PWM = (~CPU_RESETN) ? 0 : ti_OUT;
     assign LED = SW;
     
     always_ff @(posedge CLK100MHZ, negedge CPU_RESETN) begin
         if (~CPU_RESETN) begin
             divider <= 0;
+            ti_CLK <= 0;
+            /*
+            ctr <= 0;
+            latch <= 0;
+            minictr <= 0;
+            */
         end
         else begin
             if (divider == 27) begin
@@ -30,6 +43,27 @@ module sega_genesis_top(
                 ti_CLK <= 0;
                 divider <= divider + 1;
             end
+            /* Play a basic A
+            if (ctr == 113636) begin
+                latch <= ~latch;
+                ctr <= 0;
+            end
+            else begin
+                ctr <= ctr + 1;
+            end
+            if (latch) begin
+                if (minictr != 0) begin
+                    pwm_out <= 1;
+                end
+                else begin
+                    pwm_out <= 0;
+                end
+                minictr <= minictr + 1;
+            end
+            else begin
+                pwm_out <= 0;
+            end
+            */
         end
     end
     
