@@ -30,7 +30,8 @@ module sega_genesis_top(
     
     assign vdp_clk = Z80_clk;
     
-    blk_mem_gen_0 VRAM(.addra(VRAM_ADDR), .clka(vdp_clk), .dina(VRAM_DI), .douta(VRAM_DO), .ena(~VRAM_CE_N), .wea(~VRAM_WE_N));
+    blk_mem_gen_0 VRAM(.addra({VRAM_ADDR, 1'b0}), .clka(vdp_clk), .dina(VRAM_DI[15:8]), .douta(VRAM_DO[15:8]), .ena(~VRAM_UB_N && ~VRAM_CE_N), .wea(~VRAM_WE_N),
+                       .addrb({VRAM_ADDR, 1'b1}), .clkb(vdp_clk), .dinb(VRAM_DI[7:0]), .doutb(VRAM_DO[7:0]), .enb(~VRAM_LB_N && ~VRAM_CE_N), .web(~VRAM_WE_N));
     
     vdp video(.CLK(vdp_clk), .RST_N(CPU_RESETN), .SEL(vdp_sel), .A(vdp_A), .RNW(vdp_rnw), .UDS_N(vdp_uds_n),
               .LDS_N(vdp_lds_n), .DI(vdp_di), .DO(vdp_do), // Might need to rename this since "do" is a sv keyword
@@ -40,13 +41,17 @@ module sega_genesis_top(
               .VBUS_UDS_N, .VBUS_LDS_N, .VBUS_DATA, .VBUS_SEL, .VBUS_DTACK_N, .VGA_R, .VGA_G, .VGA_B, .VGA_HS,
               .VGA_VS);
     
+    enum logic [1:0] {
+        IDLE, VRAM_OPERATING
+    } state, nextState;
+    
     always_ff @(posedge CLK100MHZ, negedge CPU_RESETN) begin
         if (~CPU_RESETN) begin
             clk_divider <= 0;
             Z80_clk <= 0;
         end
         else begin
-            if (clk_divider == 27) begin
+            if (clk_divider == 27) begin //3.57 MHz
                 clk_divider <= 0;
                 Z80_clk <= ~Z80_clk;
             end
@@ -54,6 +59,31 @@ module sega_genesis_top(
                 clk_divider <= clk_divider + 1;
             end
         end
+    end
+    
+    always_comb begin // Next state logic
+        case (state)
+            IDLE: begin
+                if (~VRAM_CE_N) begin //Read enable
+                    nextState = VRAM_OPERATING;
+                end
+            end
+            
+            VRAM_OPERATING: begin
+                nextState = IDLE;
+            end
+        endcase
+    end
+    
+    always_comb begin // Output logic
+        case (state)
+            IDLE: begin
+                VRAM_DTACK_N = 1;
+            end
+            VRAM_OPERATING: begin
+                VRAM_DTACK_N = 0;
+            end
+        endcase
     end
     
 endmodule
