@@ -4,14 +4,25 @@ module sega_genesis_top(
     output [3:0] VGA_R, VGA_G, VGA_B,
     output VGA_HS, VGA_VS
 );
-    logic vdp_clk, vdp_sel, vdp_A, vdp_rnw, vdp_uds_n, vdp_lds_n, vdp_di, vdp_do, vdp_dtack_n;
-    logic VRAM_ADDR, VRAM_CE_N, VRAM_UB_N, VRAM_LB_N, VRAM_DO, VRAM_DI, VRAM_OE_N, VRAM_WE_N;
+    logic [4:0] vdp_A;
+    logic [15:0] vdp_di, vdp_do;
+    logic vdp_clk, vdp_sel, vdp_rnw, vdp_uds_n, vdp_lds_n, vdp_dtack_n;
+    
+    logic [14:0] VRAM_ADDR;
+    logic [15:0] VRAM_DO, VRAM_DI;
+    logic VRAM_CE_N, VRAM_UB_N, VRAM_LB_N, VRAM_OE_N, VRAM_WE_N;
     logic VRAM_SEL, VRAM_DTACK_N;
+    
     logic INTERLACE;
+    
     logic vdp_hint, vdp_hint_ack;
+    
     logic VINT_TG68, VINT_T80, VINT_TG68_ACK, VINT_T80_ACK;
+    
+    logic [23:0] VBUS_ADDR;
+    logic [15:0] VBUS_DATA;
     logic VBUS_DMA_REQ, VBUS_DMA_ACK;
-    logic VBUS_ADDR, VBUS_UDS_N, VBUS_LDS_N, VBUS_DATA;
+    logic VBUS_UDS_N, VBUS_LDS_N;
     logic VBUS_SEL, VBUS_DTACK_N;
     
     logic Z80_clk;
