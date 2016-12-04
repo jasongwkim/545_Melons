@@ -14,6 +14,35 @@
     </spirit:parameters>
     <spirit:busInterfaces>
       <spirit:busInterface>
+        <spirit:name>RST.RST_N</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>rst_n</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>POLARITY</spirit:name>
+            <spirit:value>ACTIVE_LOW</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
         <spirit:name>CLK.CLK</spirit:name>
         <spirit:displayName>Clk</spirit:displayName>
         <spirit:description>Clock</spirit:description>
@@ -61,26 +90,171 @@
         </spirit:parameters>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>RST.RST_N</spirit:name>
-        <spirit:displayName>Reset</spirit:displayName>
-        <spirit:description>Reset</spirit:description>
-        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:name>DATA.VDP_DO</spirit:name>
+        <spirit:displayName>Data</spirit:displayName>
+        <spirit:description>Data</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:slave/>
         <spirit:portMaps>
           <spirit:portMap>
             <spirit:logicalPort>
-              <spirit:name>RST</spirit:name>
+              <spirit:name>DATA</spirit:name>
             </spirit:logicalPort>
             <spirit:physicalPort>
-              <spirit:name>rst_n</spirit:name>
+              <spirit:name>VDP_DO</spirit:name>
             </spirit:physicalPort>
           </spirit:portMap>
         </spirit:portMaps>
         <spirit:parameters>
           <spirit:parameter>
-            <spirit:name>POLARITY</spirit:name>
-            <spirit:value>ACTIVE_LOW</spirit:value>
+            <spirit:name>LAYERED_METADATA</spirit:name>
+            <spirit:value>undef</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DATA.HV_COUNT</spirit:name>
+        <spirit:displayName>Data</spirit:displayName>
+        <spirit:description>Data</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>DATA</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>HV_count</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>LAYERED_METADATA</spirit:name>
+            <spirit:value>undef</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DATA.VDP_DI</spirit:name>
+        <spirit:displayName>Data</spirit:displayName>
+        <spirit:description>Data</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>DATA</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>VDP_DI</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>LAYERED_METADATA</spirit:name>
+            <spirit:value>undef</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DATA.VDP_VBUS_DATA</spirit:name>
+        <spirit:displayName>Data</spirit:displayName>
+        <spirit:description>Data</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>DATA</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>VDP_VBUS_DATA</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>LAYERED_METADATA</spirit:name>
+            <spirit:value>undef</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DATA.VDP_A</spirit:name>
+        <spirit:displayName>Data</spirit:displayName>
+        <spirit:description>Data</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>DATA</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>VDP_A</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>LAYERED_METADATA</spirit:name>
+            <spirit:value>undef</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DATA.VINT_TG68_ACK</spirit:name>
+        <spirit:displayName>Data</spirit:displayName>
+        <spirit:description>Data</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>DATA</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>VINT_TG68_ACK</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>LAYERED_METADATA</spirit:name>
+            <spirit:value>undef</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="default"/>
@@ -100,65 +274,23 @@
       </spirit:views>
       <spirit:ports>
         <spirit:port>
-          <spirit:name>clk</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>rst_n</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>Z80_rd</spirit:name>
+          <spirit:name>clk</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>Z80_wr</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>Z80_mreq</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>M68_rw</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>M68_as</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>M68_lds</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>M68_uds</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>Z80_addr</spirit:name>
+          <spirit:name>M68_addr</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
             <spirit:vector>
-              <spirit:left>15</spirit:left>
+              <spirit:left>31</spirit:left>
               <spirit:right>0</spirit:right>
             </spirit:vector>
           </spirit:wire>
@@ -174,53 +306,61 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>M68_addr</spirit:name>
+          <spirit:name>Z80_addr</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
             <spirit:vector>
-              <spirit:left>31</spirit:left>
+              <spirit:left>15</spirit:left>
               <spirit:right>0</spirit:right>
             </spirit:vector>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>M68_dtack</spirit:name>
+          <spirit:name>Z80_wr</spirit:name>
           <spirit:wire>
-            <spirit:direction>out</spirit:direction>
+            <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>Z80_busack</spirit:name>
+          <spirit:name>M68_uds</spirit:name>
           <spirit:wire>
-            <spirit:direction>out</spirit:direction>
+            <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>VDP_data_rw</spirit:name>
+          <spirit:name>M68_lds</spirit:name>
           <spirit:wire>
-            <spirit:direction>out</spirit:direction>
+            <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>VDP_control_rw</spirit:name>
+          <spirit:name>M68_as</spirit:name>
           <spirit:wire>
-            <spirit:direction>out</spirit:direction>
+            <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>VDP_data</spirit:name>
+          <spirit:name>M68_rw</spirit:name>
           <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-            <spirit:vector>
-              <spirit:left>7</spirit:left>
-              <spirit:right>0</spirit:right>
-            </spirit:vector>
+            <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>VDP_control</spirit:name>
+          <spirit:name>Z80_mreq</spirit:name>
           <spirit:wire>
-            <spirit:direction>out</spirit:direction>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>Z80_rd</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>Z80_data</spirit:name>
+          <spirit:wire>
+            <spirit:direction>inout</spirit:direction>
             <spirit:vector>
               <spirit:left>7</spirit:left>
               <spirit:right>0</spirit:right>
@@ -238,13 +378,131 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>Z80_data</spirit:name>
+          <spirit:name>M68_dtack</spirit:name>
           <spirit:wire>
-            <spirit:direction>inout</spirit:direction>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_DO</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
             <spirit:vector>
-              <spirit:left>7</spirit:left>
+              <spirit:left>15</spirit:left>
               <spirit:right>0</spirit:right>
             </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>HV_count</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_DTACK_N</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>HINT</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VINT_TG68</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VINT_T80</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_VBUS_SEL</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_DI</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_VBUS_DATA</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_A</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>4</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_VBUS_DTACK_N</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VINT_TG68_ACK</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>HINT_ACK</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_SEL</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_UDS_N</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_LDS_N</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>VDP_RNW</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -257,16 +515,6 @@
     <spirit:name>DMA_top_imp</spirit:name>
     <spirit:version>1.00.a</spirit:version>
     <spirit:componentInstances>
-      <spirit:componentInstance>
-        <spirit:instanceName>DMA_wrapper_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="DMA_wrapper" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">DMA_top_DMA_wrapper_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">DMA_wrapper</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>blk_mem_gen_0</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="blk_mem_gen" spirit:vendor="xilinx.com" spirit:version="8.3"/>
@@ -298,21 +546,31 @@
           <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>DMA_wrapper_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="DMA_wrapper" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">DMA_top_DMA_wrapper_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">DMA_wrapper</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:adHocConnections>
       <spirit:adHocConnection>
         <spirit:name>rst_n_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="rst_n"/>
-        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="rst_n"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="rsta"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1" spirit:portRef="rsta"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="rst_n"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>clk_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="clka"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1" spirit:portRef="clka"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DMA_wrapper_0_RAM_16_addr</spirit:name>
@@ -425,34 +683,94 @@
         <spirit:externalPortReference spirit:portRef="M68_data_in"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>DMA_wrapper_0_VDP_control</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_control"/>
-        <spirit:externalPortReference spirit:portRef="VDP_control"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>DMA_wrapper_0_VDP_data</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_data"/>
-        <spirit:externalPortReference spirit:portRef="VDP_data"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>DMA_wrapper_0_VDP_control_rw</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_control_rw"/>
-        <spirit:externalPortReference spirit:portRef="VDP_control_rw"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>DMA_wrapper_0_VDP_data_rw</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_data_rw"/>
-        <spirit:externalPortReference spirit:portRef="VDP_data_rw"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>DMA_wrapper_0_Z80_busack</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="Z80_busack"/>
-        <spirit:externalPortReference spirit:portRef="Z80_busack"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>DMA_wrapper_0_M68_dtack</spirit:name>
         <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="M68_dtack"/>
         <spirit:externalPortReference spirit:portRef="M68_dtack"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>VDP_DO_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="VDP_DO"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_DO"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>HV_count_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="HV_count"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="HV_count"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>VDP_DTACK_N_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="VDP_DTACK_N"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_DTACK_N"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>HINT_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="HINT"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="HINT"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>VINT_TG68_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="VINT_TG68"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VINT_TG68"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>VINT_T80_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="VINT_T80"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VINT_T80"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>VDP_VBUS_SEL_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="VDP_VBUS_SEL"/>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_VBUS_SEL"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_DI</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_DI"/>
+        <spirit:externalPortReference spirit:portRef="VDP_DI"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_VBUS_DATA</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_VBUS_DATA"/>
+        <spirit:externalPortReference spirit:portRef="VDP_VBUS_DATA"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_VBUS_DTACK_N</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_VBUS_DTACK_N"/>
+        <spirit:externalPortReference spirit:portRef="VDP_VBUS_DTACK_N"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_A</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_A"/>
+        <spirit:externalPortReference spirit:portRef="VDP_A"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VINT_TG68_ACK</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VINT_TG68_ACK"/>
+        <spirit:externalPortReference spirit:portRef="VINT_TG68_ACK"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_HINT_ACK</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="HINT_ACK"/>
+        <spirit:externalPortReference spirit:portRef="HINT_ACK"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_SEL</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_SEL"/>
+        <spirit:externalPortReference spirit:portRef="VDP_SEL"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_LDS_N</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_LDS_N"/>
+        <spirit:externalPortReference spirit:portRef="VDP_LDS_N"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_UDS_N</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_UDS_N"/>
+        <spirit:externalPortReference spirit:portRef="VDP_UDS_N"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DMA_wrapper_0_VDP_RNW</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DMA_wrapper_0" spirit:portRef="VDP_RNW"/>
+        <spirit:externalPortReference spirit:portRef="VDP_RNW"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
   </spirit:design>

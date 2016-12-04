@@ -63,26 +63,38 @@ module DMA_top_DMA_wrapper_0_0 (
   M68_as,
   M68_lds,
   M68_uds,
+  VDP_DTACK_N,
+  HINT,
+  VINT_TG68,
+  VINT_T80,
+  VDP_VBUS_SEL,
   RAM_8_data_out,
   RAM_16_data_out,
   Z80_addr,
   M68_data_out,
+  VDP_DO,
+  HV_count,
   M68_addr,
   M68_dtack,
-  Z80_busack,
   RAM_8_en,
   RAM_16_en,
   RAM_8_we,
   RAM_16_we,
-  VDP_data_rw,
-  VDP_control_rw,
+  VDP_RNW,
+  VDP_UDS_N,
+  VDP_LDS_N,
+  VDP_SEL,
+  HINT_ACK,
+  VINT_TG68_ACK,
+  VDP_VBUS_DTACK_N,
+  VDP_A,
   RAM_8_data_in,
-  VDP_data,
-  VDP_control,
   RAM_8_addr,
   RAM_16_addr,
   RAM_16_data_in,
   M68_data_in,
+  VDP_DI,
+  VDP_VBUS_DATA,
   Z80_data
 );
 
@@ -96,26 +108,38 @@ input wire M68_rw;
 input wire M68_as;
 input wire M68_lds;
 input wire M68_uds;
+input wire VDP_DTACK_N;
+input wire HINT;
+input wire VINT_TG68;
+input wire VINT_T80;
+input wire VDP_VBUS_SEL;
 input wire [7 : 0] RAM_8_data_out;
 input wire [15 : 0] RAM_16_data_out;
 input wire [15 : 0] Z80_addr;
 input wire [15 : 0] M68_data_out;
+input wire [15 : 0] VDP_DO;
+input wire [15 : 0] HV_count;
 input wire [31 : 0] M68_addr;
 output wire M68_dtack;
-output wire Z80_busack;
 output wire RAM_8_en;
 output wire RAM_16_en;
 output wire RAM_8_we;
 output wire RAM_16_we;
-output wire VDP_data_rw;
-output wire VDP_control_rw;
+output wire VDP_RNW;
+output wire VDP_UDS_N;
+output wire VDP_LDS_N;
+output wire VDP_SEL;
+output wire HINT_ACK;
+output wire VINT_TG68_ACK;
+output wire VDP_VBUS_DTACK_N;
+output wire [4 : 0] VDP_A;
 output wire [7 : 0] RAM_8_data_in;
-output wire [7 : 0] VDP_data;
-output wire [7 : 0] VDP_control;
 output wire [9 : 0] RAM_8_addr;
 output wire [11 : 0] RAM_16_addr;
 output wire [15 : 0] RAM_16_data_in;
 output wire [15 : 0] M68_data_in;
+output wire [15 : 0] VDP_DI;
+output wire [15 : 0] VDP_VBUS_DATA;
 inout wire [7 : 0] Z80_data;
 
   DMA_wrapper inst (
@@ -128,26 +152,38 @@ inout wire [7 : 0] Z80_data;
     .M68_as(M68_as),
     .M68_lds(M68_lds),
     .M68_uds(M68_uds),
+    .VDP_DTACK_N(VDP_DTACK_N),
+    .HINT(HINT),
+    .VINT_TG68(VINT_TG68),
+    .VINT_T80(VINT_T80),
+    .VDP_VBUS_SEL(VDP_VBUS_SEL),
     .RAM_8_data_out(RAM_8_data_out),
     .RAM_16_data_out(RAM_16_data_out),
     .Z80_addr(Z80_addr),
     .M68_data_out(M68_data_out),
+    .VDP_DO(VDP_DO),
+    .HV_count(HV_count),
     .M68_addr(M68_addr),
     .M68_dtack(M68_dtack),
-    .Z80_busack(Z80_busack),
     .RAM_8_en(RAM_8_en),
     .RAM_16_en(RAM_16_en),
     .RAM_8_we(RAM_8_we),
     .RAM_16_we(RAM_16_we),
-    .VDP_data_rw(VDP_data_rw),
-    .VDP_control_rw(VDP_control_rw),
+    .VDP_RNW(VDP_RNW),
+    .VDP_UDS_N(VDP_UDS_N),
+    .VDP_LDS_N(VDP_LDS_N),
+    .VDP_SEL(VDP_SEL),
+    .HINT_ACK(HINT_ACK),
+    .VINT_TG68_ACK(VINT_TG68_ACK),
+    .VDP_VBUS_DTACK_N(VDP_VBUS_DTACK_N),
+    .VDP_A(VDP_A),
     .RAM_8_data_in(RAM_8_data_in),
-    .VDP_data(VDP_data),
-    .VDP_control(VDP_control),
     .RAM_8_addr(RAM_8_addr),
     .RAM_16_addr(RAM_16_addr),
     .RAM_16_data_in(RAM_16_data_in),
     .M68_data_in(M68_data_in),
+    .VDP_DI(VDP_DI),
+    .VDP_VBUS_DATA(VDP_VBUS_DATA),
     .Z80_data(Z80_data)
   );
 endmodule

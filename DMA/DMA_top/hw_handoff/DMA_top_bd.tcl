@@ -150,6 +150,9 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
+  set HINT [ create_bd_port -dir I HINT ]
+  set HINT_ACK [ create_bd_port -dir O HINT_ACK ]
+  set HV_count [ create_bd_port -dir I -from 15 -to 0 -type data HV_count ]
   set M68_addr [ create_bd_port -dir I -from 31 -to 0 M68_addr ]
   set M68_as [ create_bd_port -dir I M68_as ]
   set M68_data_in [ create_bd_port -dir O -from 15 -to 0 M68_data_in ]
@@ -158,12 +161,21 @@ proc create_root_design { parentCell } {
   set M68_lds [ create_bd_port -dir I M68_lds ]
   set M68_rw [ create_bd_port -dir I M68_rw ]
   set M68_uds [ create_bd_port -dir I M68_uds ]
-  set VDP_control [ create_bd_port -dir O -from 7 -to 0 VDP_control ]
-  set VDP_control_rw [ create_bd_port -dir O VDP_control_rw ]
-  set VDP_data [ create_bd_port -dir O -from 7 -to 0 VDP_data ]
-  set VDP_data_rw [ create_bd_port -dir O VDP_data_rw ]
+  set VDP_A [ create_bd_port -dir O -from 4 -to 0 -type data VDP_A ]
+  set VDP_DI [ create_bd_port -dir O -from 15 -to 0 -type data VDP_DI ]
+  set VDP_DO [ create_bd_port -dir I -from 15 -to 0 -type data VDP_DO ]
+  set VDP_DTACK_N [ create_bd_port -dir I VDP_DTACK_N ]
+  set VDP_LDS_N [ create_bd_port -dir O VDP_LDS_N ]
+  set VDP_RNW [ create_bd_port -dir O VDP_RNW ]
+  set VDP_SEL [ create_bd_port -dir O VDP_SEL ]
+  set VDP_UDS_N [ create_bd_port -dir O VDP_UDS_N ]
+  set VDP_VBUS_DATA [ create_bd_port -dir O -from 15 -to 0 -type data VDP_VBUS_DATA ]
+  set VDP_VBUS_DTACK_N [ create_bd_port -dir O VDP_VBUS_DTACK_N ]
+  set VDP_VBUS_SEL [ create_bd_port -dir I VDP_VBUS_SEL ]
+  set VINT_T80 [ create_bd_port -dir I VINT_T80 ]
+  set VINT_TG68 [ create_bd_port -dir I VINT_TG68 ]
+  set VINT_TG68_ACK [ create_bd_port -dir O -type data VINT_TG68_ACK ]
   set Z80_addr [ create_bd_port -dir I -from 15 -to 0 Z80_addr ]
-  set Z80_busack [ create_bd_port -dir O Z80_busack ]
   set Z80_data [ create_bd_port -dir IO -from 7 -to 0 Z80_data ]
   set Z80_mreq [ create_bd_port -dir I Z80_mreq ]
   set Z80_rd [ create_bd_port -dir I Z80_rd ]
@@ -219,6 +231,7 @@ CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_1
 
   # Create port connections
+  connect_bd_net -net DMA_wrapper_0_HINT_ACK [get_bd_ports HINT_ACK] [get_bd_pins DMA_wrapper_0/HINT_ACK]
   connect_bd_net -net DMA_wrapper_0_M68_data_in [get_bd_ports M68_data_in] [get_bd_pins DMA_wrapper_0/M68_data_in]
   connect_bd_net -net DMA_wrapper_0_M68_dtack [get_bd_ports M68_dtack] [get_bd_pins DMA_wrapper_0/M68_dtack]
   connect_bd_net -net DMA_wrapper_0_RAM_16_addr [get_bd_pins DMA_wrapper_0/RAM_16_addr] [get_bd_pins blk_mem_gen_0/addra]
@@ -229,11 +242,17 @@ CONFIG.use_bram_block {Stand_Alone} \
   connect_bd_net -net DMA_wrapper_0_RAM_8_data_in [get_bd_pins DMA_wrapper_0/RAM_8_data_in] [get_bd_pins blk_mem_gen_1/dina]
   connect_bd_net -net DMA_wrapper_0_RAM_8_en [get_bd_pins DMA_wrapper_0/RAM_8_en] [get_bd_pins blk_mem_gen_1/ena]
   connect_bd_net -net DMA_wrapper_0_RAM_8_we [get_bd_pins DMA_wrapper_0/RAM_8_we] [get_bd_pins blk_mem_gen_1/wea]
-  connect_bd_net -net DMA_wrapper_0_VDP_control [get_bd_ports VDP_control] [get_bd_pins DMA_wrapper_0/VDP_control]
-  connect_bd_net -net DMA_wrapper_0_VDP_control_rw [get_bd_ports VDP_control_rw] [get_bd_pins DMA_wrapper_0/VDP_control_rw]
-  connect_bd_net -net DMA_wrapper_0_VDP_data [get_bd_ports VDP_data] [get_bd_pins DMA_wrapper_0/VDP_data]
-  connect_bd_net -net DMA_wrapper_0_VDP_data_rw [get_bd_ports VDP_data_rw] [get_bd_pins DMA_wrapper_0/VDP_data_rw]
-  connect_bd_net -net DMA_wrapper_0_Z80_busack [get_bd_ports Z80_busack] [get_bd_pins DMA_wrapper_0/Z80_busack]
+  connect_bd_net -net DMA_wrapper_0_VDP_A [get_bd_ports VDP_A] [get_bd_pins DMA_wrapper_0/VDP_A]
+  connect_bd_net -net DMA_wrapper_0_VDP_DI [get_bd_ports VDP_DI] [get_bd_pins DMA_wrapper_0/VDP_DI]
+  connect_bd_net -net DMA_wrapper_0_VDP_LDS_N [get_bd_ports VDP_LDS_N] [get_bd_pins DMA_wrapper_0/VDP_LDS_N]
+  connect_bd_net -net DMA_wrapper_0_VDP_RNW [get_bd_ports VDP_RNW] [get_bd_pins DMA_wrapper_0/VDP_RNW]
+  connect_bd_net -net DMA_wrapper_0_VDP_SEL [get_bd_ports VDP_SEL] [get_bd_pins DMA_wrapper_0/VDP_SEL]
+  connect_bd_net -net DMA_wrapper_0_VDP_UDS_N [get_bd_ports VDP_UDS_N] [get_bd_pins DMA_wrapper_0/VDP_UDS_N]
+  connect_bd_net -net DMA_wrapper_0_VDP_VBUS_DATA [get_bd_ports VDP_VBUS_DATA] [get_bd_pins DMA_wrapper_0/VDP_VBUS_DATA]
+  connect_bd_net -net DMA_wrapper_0_VDP_VBUS_DTACK_N [get_bd_ports VDP_VBUS_DTACK_N] [get_bd_pins DMA_wrapper_0/VDP_VBUS_DTACK_N]
+  connect_bd_net -net DMA_wrapper_0_VINT_TG68_ACK [get_bd_ports VINT_TG68_ACK] [get_bd_pins DMA_wrapper_0/VINT_TG68_ACK]
+  connect_bd_net -net HINT_1 [get_bd_ports HINT] [get_bd_pins DMA_wrapper_0/HINT]
+  connect_bd_net -net HV_count_1 [get_bd_ports HV_count] [get_bd_pins DMA_wrapper_0/HV_count]
   connect_bd_net -net M68_addr_1 [get_bd_ports M68_addr] [get_bd_pins DMA_wrapper_0/M68_addr]
   connect_bd_net -net M68_as_1 [get_bd_ports M68_as] [get_bd_pins DMA_wrapper_0/M68_as]
   connect_bd_net -net M68_data_out_1 [get_bd_ports M68_data_out] [get_bd_pins DMA_wrapper_0/M68_data_out]
@@ -241,6 +260,11 @@ CONFIG.use_bram_block {Stand_Alone} \
   connect_bd_net -net M68_rw_1 [get_bd_ports M68_rw] [get_bd_pins DMA_wrapper_0/M68_rw]
   connect_bd_net -net M68_uds_1 [get_bd_ports M68_uds] [get_bd_pins DMA_wrapper_0/M68_uds]
   connect_bd_net -net Net [get_bd_ports Z80_data] [get_bd_pins DMA_wrapper_0/Z80_data]
+  connect_bd_net -net VDP_DO_1 [get_bd_ports VDP_DO] [get_bd_pins DMA_wrapper_0/VDP_DO]
+  connect_bd_net -net VDP_DTACK_N_1 [get_bd_ports VDP_DTACK_N] [get_bd_pins DMA_wrapper_0/VDP_DTACK_N]
+  connect_bd_net -net VDP_VBUS_SEL_1 [get_bd_ports VDP_VBUS_SEL] [get_bd_pins DMA_wrapper_0/VDP_VBUS_SEL]
+  connect_bd_net -net VINT_T80_1 [get_bd_ports VINT_T80] [get_bd_pins DMA_wrapper_0/VINT_T80]
+  connect_bd_net -net VINT_TG68_1 [get_bd_ports VINT_TG68] [get_bd_pins DMA_wrapper_0/VINT_TG68]
   connect_bd_net -net Z80_addr_1 [get_bd_ports Z80_addr] [get_bd_pins DMA_wrapper_0/Z80_addr]
   connect_bd_net -net Z80_mreq_1 [get_bd_ports Z80_mreq] [get_bd_pins DMA_wrapper_0/Z80_mreq]
   connect_bd_net -net Z80_rd_1 [get_bd_ports Z80_rd] [get_bd_pins DMA_wrapper_0/Z80_rd]
@@ -256,60 +280,84 @@ CONFIG.use_bram_block {Stand_Alone} \
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port Z80_busack -pg 1 -y 70 -defaultsOSRD
-preplace port Z80_wr -pg 1 -y 130 -defaultsOSRD
-preplace port M68_as -pg 1 -y 190 -defaultsOSRD
-preplace port Z80_mreq -pg 1 -y 150 -defaultsOSRD
-preplace port M68_dtack -pg 1 -y 50 -defaultsOSRD
-preplace port M68_rw -pg 1 -y 170 -defaultsOSRD
-preplace port VDP_control_rw -pg 1 -y 190 -defaultsOSRD
-preplace port Z80_rd -pg 1 -y 110 -defaultsOSRD
-preplace port M68_uds -pg 1 -y 230 -defaultsOSRD
-preplace port M68_lds -pg 1 -y 210 -defaultsOSRD
+preplace port VINT_T80 -pg 1 -y 240 -defaultsOSRD
+preplace port Z80_wr -pg 1 -y 60 -defaultsOSRD
+preplace port Z80_mreq -pg 1 -y 80 -defaultsOSRD
+preplace port M68_as -pg 1 -y 120 -defaultsOSRD
+preplace port VDP_RNW -pg 1 -y 80 -defaultsOSRD
+preplace port VDP_UDS_N -pg 1 -y 100 -defaultsOSRD
+preplace port VDP_SEL -pg 1 -y 140 -defaultsOSRD
+preplace port VINT_TG68_ACK -pg 1 -y 180 -defaultsOSRD
+preplace port VDP_VBUS_SEL -pg 1 -y 260 -defaultsOSRD
+preplace port HINT -pg 1 -y 200 -defaultsOSRD
+preplace port M68_dtack -pg 1 -y -20 -defaultsOSRD
+preplace port M68_rw -pg 1 -y 100 -defaultsOSRD
+preplace port VINT_TG68 -pg 1 -y 220 -defaultsOSRD
+preplace port Z80_rd -pg 1 -y 40 -defaultsOSRD
+preplace port VDP_DTACK_N -pg 1 -y 180 -defaultsOSRD
+preplace port M68_lds -pg 1 -y 140 -defaultsOSRD
+preplace port M68_uds -pg 1 -y 160 -defaultsOSRD
+preplace port VDP_LDS_N -pg 1 -y 120 -defaultsOSRD
 preplace port clk -pg 1 -y -70 -defaultsOSRD
-preplace port VDP_data_rw -pg 1 -y 170 -defaultsOSRD
+preplace port HINT_ACK -pg 1 -y 160 -defaultsOSRD
+preplace port VDP_VBUS_DTACK_N -pg 1 -y 200 -defaultsOSRD
 preplace port rst_n -pg 1 -y -50 -defaultsOSRD
-preplace portBus M68_addr -pg 1 -y 330 -defaultsOSRD
-preplace portBus M68_data_out -pg 1 -y 310 -defaultsOSRD
-preplace portBus VDP_data -pg 1 -y 230 -defaultsOSRD
-preplace portBus Z80_data -pg 1 -y 350 -defaultsOSRD
-preplace portBus M68_data_in -pg 1 -y 330 -defaultsOSRD
-preplace portBus VDP_control -pg 1 -y 250 -defaultsOSRD
-preplace portBus Z80_addr -pg 1 -y 290 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -y 540 -defaultsOSRD
-preplace inst blk_mem_gen_1 -pg 1 -lvl 1 -y 760 -defaultsOSRD
+preplace portBus M68_addr -pg 1 -y 400 -defaultsOSRD
+preplace portBus M68_data_out -pg 1 -y 340 -defaultsOSRD
+preplace portBus HV_count -pg 1 -y 380 -defaultsOSRD
+preplace portBus VDP_DO -pg 1 -y 360 -defaultsOSRD
+preplace portBus VDP_A -pg 1 -y 220 -defaultsOSRD
+preplace portBus M68_data_in -pg 1 -y 360 -defaultsOSRD
+preplace portBus Z80_data -pg 1 -y 420 -defaultsOSRD
+preplace portBus VDP_VBUS_DATA -pg 1 -y 400 -defaultsOSRD
+preplace portBus VDP_DI -pg 1 -y 380 -defaultsOSRD
+preplace portBus Z80_addr -pg 1 -y 320 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -y 610 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 1 -y 830 -defaultsOSRD
 preplace inst DMA_wrapper_0 -pg 1 -lvl 1 -y 200 -defaultsOSRD
+preplace netloc DMA_wrapper_0_VDP_UDS_N 1 1 1 810
 preplace netloc Z80_addr_1 1 0 1 N
-preplace netloc blk_mem_gen_1_douta 1 0 1 70
-preplace netloc DMA_wrapper_0_Z80_busack 1 1 1 N
-preplace netloc DMA_wrapper_0_RAM_16_en 1 0 2 50 -50 790
+preplace netloc VINT_TG68_1 1 0 1 N
+preplace netloc VDP_DTACK_N_1 1 0 1 N
+preplace netloc blk_mem_gen_1_douta 1 0 1 60
+preplace netloc DMA_wrapper_0_RAM_16_en 1 0 2 80 -50 750
 preplace netloc Z80_mreq_1 1 0 1 N
-preplace netloc DMA_wrapper_0_RAM_8_addr 1 0 2 90 400 750
+preplace netloc DMA_wrapper_0_RAM_8_addr 1 0 2 130 480 760
 preplace netloc M68_lds_1 1 0 1 N
-preplace netloc DMA_wrapper_0_RAM_8_en 1 0 2 80 420 810
-preplace netloc DMA_wrapper_0_RAM_16_addr 1 0 2 110 -10 780
-preplace netloc DMA_wrapper_0_VDP_control_rw 1 1 1 N
+preplace netloc DMA_wrapper_0_RAM_8_en 1 0 2 50 -80 770
+preplace netloc DMA_wrapper_0_RAM_16_addr 1 0 2 70 -100 790
 preplace netloc Z80_rd_1 1 0 1 N
 preplace netloc M68_data_out_1 1 0 1 N
+preplace netloc DMA_wrapper_0_VDP_RNW 1 1 1 800
+preplace netloc DMA_wrapper_0_VDP_LDS_N 1 1 1 820
+preplace netloc VDP_VBUS_SEL_1 1 0 1 N
 preplace netloc rst_n_1 1 0 1 20
-preplace netloc DMA_wrapper_0_VDP_data_rw 1 1 1 N
-preplace netloc DMA_wrapper_0_VDP_control 1 1 1 N
 preplace netloc M68_uds_1 1 0 1 N
-preplace netloc DMA_wrapper_0_RAM_16_we 1 0 2 60 -40 800
-preplace netloc DMA_wrapper_0_RAM_16_data_in 1 0 2 120 0 770
+preplace netloc DMA_wrapper_0_RAM_16_we 1 0 2 120 460 770
+preplace netloc DMA_wrapper_0_RAM_16_data_in 1 0 2 100 -70 780
 preplace netloc clk_1 1 0 1 30
-preplace netloc DMA_wrapper_0_M68_data_in 1 1 1 N
+preplace netloc DMA_wrapper_0_VDP_A 1 1 1 870
+preplace netloc DMA_wrapper_0_VDP_VBUS_DATA 1 1 1 790
+preplace netloc DMA_wrapper_0_HINT_ACK 1 1 1 840
+preplace netloc DMA_wrapper_0_M68_data_in 1 1 1 860
 preplace netloc M68_rw_1 1 0 1 N
-preplace netloc DMA_wrapper_0_RAM_8_we 1 0 2 40 -20 750
-preplace netloc blk_mem_gen_0_douta 1 0 1 130
-preplace netloc DMA_wrapper_0_VDP_data 1 1 1 N
-preplace netloc Net 1 1 1 N
+preplace netloc DMA_wrapper_0_RAM_8_we 1 0 2 40 -110 800
+preplace netloc blk_mem_gen_0_douta 1 0 1 110
+preplace netloc DMA_wrapper_0_VDP_SEL 1 1 1 830
+preplace netloc HINT_1 1 0 1 N
+preplace netloc VDP_DO_1 1 0 1 N
+preplace netloc Net 1 1 1 780
 preplace netloc M68_as_1 1 0 1 N
 preplace netloc Z80_wr_1 1 0 1 N
-preplace netloc DMA_wrapper_0_M68_dtack 1 1 1 N
+preplace netloc DMA_wrapper_0_VDP_VBUS_DTACK_N 1 1 1 860
+preplace netloc DMA_wrapper_0_VDP_DI 1 1 1 820
+preplace netloc HV_count_1 1 0 1 N
+preplace netloc DMA_wrapper_0_M68_dtack 1 1 1 810
+preplace netloc DMA_wrapper_0_VINT_TG68_ACK 1 1 1 850
+preplace netloc VINT_T80_1 1 0 1 N
 preplace netloc M68_addr_1 1 0 1 N
-preplace netloc DMA_wrapper_0_RAM_8_data_in 1 0 2 100 410 760
-levelinfo -pg 1 0 570 900 -top -90 -bot 880
+preplace netloc DMA_wrapper_0_RAM_8_data_in 1 0 2 90 450 750
+levelinfo -pg 1 0 570 910 -top -120 -bot 950
 ",
 }
 
