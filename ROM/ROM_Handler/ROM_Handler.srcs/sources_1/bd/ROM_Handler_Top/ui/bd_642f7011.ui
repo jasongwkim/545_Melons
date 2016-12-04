@@ -1,26 +1,24 @@
 {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port word -pg 1 -y 220 -defaultsOSRD
-preplace port mem_rq -pg 1 -y 200 -defaultsOSRD
-preplace port ack -pg 1 -y 210 -defaultsOSRD
+preplace port dtack -pg 1 -y 210 -defaultsOSRD
+preplace port as -pg 1 -y 210 -defaultsOSRD
 preplace port clk -pg 1 -y -150 -defaultsOSRD
 preplace port rst_n -pg 1 -y -110 -defaultsOSRD
-preplace portBus addr -pg 1 -y 180 -defaultsOSRD
+preplace portBus addr -pg 1 -y 190 -defaultsOSRD
 preplace inst ROM_Handler_0 -pg 1 -lvl 1 -y 160 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -y 570 -defaultsOSRD
 preplace netloc addr_1 1 0 1 N
-preplace netloc ROM_Handler_0_ack 1 1 1 N
-preplace netloc ROM_Handler_0_ROM_addr_1 1 0 2 20 30 710
-preplace netloc word_1 1 0 1 N
-preplace netloc ROM_Handler_0_ROM_addr_2 1 0 2 10 40 700
+preplace netloc ROM_Handler_0_ROM_addr_1 1 0 2 20 60 680
+preplace netloc ROM_Handler_0_ROM_addr_2 1 0 2 40 260 690
+preplace netloc as_1 1 0 1 N
 preplace netloc rst_n_1 1 0 1 -20
 preplace netloc clk_1 1 0 1 -10
-preplace netloc mem_rq_1 1 0 1 N
-preplace netloc blk_mem_gen_0_douta 1 0 1 40
-preplace netloc blk_mem_gen_0_doutb 1 0 1 30
+preplace netloc ROM_Handler_0_dtack 1 1 1 N
+preplace netloc blk_mem_gen_0_douta 1 0 1 30
+preplace netloc blk_mem_gen_0_doutb 1 0 1 10
 preplace netloc ROM_Handler_0_rd_en_1 1 0 2 50 270 680
-preplace netloc ROM_Handler_0_rd_en_2 1 0 2 0 50 690
+preplace netloc ROM_Handler_0_rd_en_2 1 0 2 0 40 700
 levelinfo -pg 1 -40 530 740 -top -170 -bot 730
 ",
 }

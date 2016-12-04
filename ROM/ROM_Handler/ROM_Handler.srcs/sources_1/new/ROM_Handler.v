@@ -24,24 +24,25 @@ module ROM_Handler(
     input wire clk, rst_n,
     input wire [7:0] ROM_data_1, ROM_data_2,
     input wire [23:0] addr, 
-    input wire mem_rq, word, 
+    input wire as,
     output wire [15:0] data, 
     output wire [18:0] ROM_addr_1, ROM_addr_2,
-    output wire rd_en_1, rd_en_2, ack
+    output wire rd_en_1, rd_en_2, dtack
     );
     
     reg rq_flag;
     reg access_count;
+    wire as;
     
     assign ROM_addr_1 = addr[18:0];
     assign ROM_addr_2 = addr[18:0]+1;
     
-    assign rd_en_1 = mem_rq | rq_flag;
-    assign rd_en_2 = (mem_rq | rq_flag) & word;
+    assign rd_en_1 = as;
+    assign rd_en_2 = as;
     
-    assign data = (word) ? {ROM_data_1, ROM_data_2} : ROM_data_1;
+    assign data = {ROM_data_2, ROM_data_1};
     
-    assign ack = rq_flag;
+    assign dtack = rq_flag;
         
     always @(posedge clk, negedge rst_n) begin
         if(!rst_n) begin
@@ -49,7 +50,7 @@ module ROM_Handler(
             rq_flag <= 0;
         end   
         else begin
-            if(mem_rq) begin
+            if(as) begin
                 rq_flag <= 1;
                 access_count <= 1;
             end

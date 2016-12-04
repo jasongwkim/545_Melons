@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log ROM_Handler.vds -m64 -mode batch -messageDb vivado.pb -notrace -source ROM_Handler.tcl" );
+         "-log ROM_Handler_Top_wrapper.vds -m64 -mode batch -messageDb vivado.pb -notrace -source ROM_Handler_Top_wrapper.tcl" );
 
 
 

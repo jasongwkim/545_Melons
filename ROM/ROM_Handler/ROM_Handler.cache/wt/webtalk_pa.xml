@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sat Dec 03 21:59:00 2016">
+<application name="pa" timeStamp="Sun Dec 04 16:37:38 2016">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="29e7f08bb48c4ba9b420817e8667f85d" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -20,81 +20,83 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddModuleToBlockDesign" value="1" type="JavaHandler"/>
 <property name="AddSources" value="3" type="JavaHandler"/>
 <property name="CreateBlockDesign" value="1" type="JavaHandler"/>
-<property name="CustomizeRSBBlock" value="9" type="JavaHandler"/>
-<property name="EditDelete" value="6" type="JavaHandler"/>
+<property name="CreateTopHDL" value="1" type="JavaHandler"/>
+<property name="CustomizeRSBBlock" value="14" type="JavaHandler"/>
+<property name="EditDelete" value="12" type="JavaHandler"/>
 <property name="EditProperties" value="1" type="JavaHandler"/>
-<property name="EditUndo" value="1" type="JavaHandler"/>
+<property name="EditUndo" value="2" type="JavaHandler"/>
 <property name="OpenFile" value="1" type="JavaHandler"/>
 <property name="RecustomizeCore" value="2" type="JavaHandler"/>
 <property name="RefreshRSBBlock" value="2" type="JavaHandler"/>
-<property name="RunSynthesis" value="1" type="JavaHandler"/>
-<property name="SaveRSBDesign" value="2" type="JavaHandler"/>
+<property name="RunSynthesis" value="2" type="JavaHandler"/>
+<property name="SaveRSBDesign" value="5" type="JavaHandler"/>
 <property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
 <property name="WriteCfgMemFile" value="2" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="FINISH, Finish" value="1" type="GuiResourceData"/>
-<property name="NEXT, Next " value="1" type="GuiResourceData"/>
+<property name="Defines the PortA Write Width(DINA" value="1" type="GuiResourceData"/>
 <property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_ADD_SOURCES, Add Sources..." value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_OPEN_FILE, Open File..." value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_REFRESH_RSB_BLOCK, Refresh Module" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_WRITE_CONFIG_MEMORY_FILE, Generate Memory Configuration File..." value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, ROM_Handler (ROM_Handler.v" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, ROM_Handler_Top (ROM_Handler_Top.bd" value="10" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files, ROM_Handler.v], 2, false" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files, ROM_Handler.v], 2, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files], 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, TG68 - logic (TG68.vhd" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1], 11" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 10" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 4, true, false, false, false, true, false" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.HACGCCoeFileWidget_BROWSE, Browse" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_EDIT, Edit" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_FLOW, Flow" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_HELP, Help" value="4" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="3" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_REPORT, Report" value="3" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_TOOLS, Tools" value="6" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_VIEW, View" value="6" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_WINDOW, Window" value="4" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainToolbarMgr_OPEN, (String" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PlanAheadTab_REFRESH_CHANGED_MODULES, Refresh Changed Modules" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.RSBAddModuleDialog_HIDE_INCOMPATIBLE_MODULES, Hide incompatible modules, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SelectMenu_HIGHLIGHT, Highlight" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, Add Files..." value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserPanel_ADD_OR_CREATE_SOURCE_FILE, Add" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SystemBuilderMenu_ADD_MODULE, Add Module..." value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SystemBuilderView_ORIENTATION, Orientation" value="3" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.WriteCfgMemFileDialog_CUSTOM_MEMORY_SIZE, Custom Memory Size (MB" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.WriteCfgMemFileDialog_FORMAT, BIN, 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.WriteCfgMemFileDialog_FORMAT, MCS, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.WriteCfgMemFileDialog_LOAD_DATA_FILES, Load data files, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.WriteCfgMemFileDialog_MEMORY_PART, Memory Part:" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.WriteCfgMemFileDialog_SPECIFY_CONFIGURATION_FILENAME, (String" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_CREATE_VECTOR, Create vector:, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_DIRECTION, Input, 0" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_DIRECTION, Output, 1" value="2" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_FROM, 23" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_PORT_NAME, ack" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_PORT_NAME, addr" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_PORT_NAME, addra" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_PORT_NAME, as" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_PORT_NAME, dtack" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_PORT_NAME, mem_rq" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_PORT_NAME, word" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateRSBPortDialog_TYPE, Data, 3" value="4" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_CREATE_TOP_HDL, Create HDL Wrapper..." value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_RUN_SYNTHESIS, run_synthesis" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints], 7, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, ROM_Handler_Top (ROM_Handler_Top.bd" value="9" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, ROM_Handler_Top_wrapper (ROM_Handler_Top_wrapper.v" value="3" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, TG68 - logic (TG68.vhd" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, TG68_fast - logic (TG68_fast.vhd" value="4" type="GuiResourceData"/>
+<property name="PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, C:/Users/bradp/OneDrive/Documents/College/18-545/ROM_Handler/ROM_Handler.xpr, 0" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.HACGCCoeFileWidget_BROWSE, Browse" value="5" type="GuiResourceData"/>
+<property name="PAResourceEtoH.HACGCCoeFileWidget_EDIT, Edit" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PlanAheadTab_REFRESH_CHANGED_MODULES, Refresh Changed Modules" value="3" type="GuiResourceData"/>
 <property name="RDIResource.BaseDialog_CANCEL, Cancel" value="2" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_OK, OK" value="4" type="GuiResourceData"/>
-<property name="RDIResource.MainWinMenuMgr_LAYOUT, Layout" value="6" type="GuiResourceData"/>
-<property name="RDIResource.SelectableListPanel_SELECTABLE_LIST, TG68 - logic (TG68.vhd" value="1" type="GuiResourceData"/>
-<property name="RDIResourceCommand.RDICommands_CUSTOM_COMMANDS, Customize Commands" value="2" type="GuiResourceData"/>
-<property name="ROM_Handler.v, 204, 92" value="1" type="GuiResourceData"/>
-<property name="ROM_Handler.v, 219, 91" value="1" type="GuiResourceData"/>
-<property name="ROM_Handler.v, 236, 92" value="2" type="GuiResourceData"/>
-<property name="ROM_Handler.v, 236, 92, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="ROM_Handler.v, 274, 151" value="1" type="GuiResourceData"/>
-<property name="ROM_Handler.v, 480, 323" value="1" type="GuiResourceData"/>
-<property name="ROM_Handler.v, 651, 358" value="1" type="GuiResourceData"/>
-<property name="TG68.vhd, 384, 400" value="1" type="GuiResourceData"/>
-<property name="TG68.vhd, 69, 467" value="1" type="GuiResourceData"/>
-<property name="TG68.vhd, 69, 467, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="13" type="GuiResourceData"/>
+<property name="RDIResourceCommand.RDICommands_DELETE, Remove File from Project..." value="2" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 118, 158" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 121, 249" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 121, 249, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 122, 143" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 125, 199" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 127, 101" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 127, 101, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 128, 369" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 140, 230" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 147, 168" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 160, 211" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 160, 316" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 160, 333" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 160, 333, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 169, 313" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 169, 313, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 190, 365" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 241, 94" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 242, 380" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 247, 148" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 247, 148, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 249, 379" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 322, 328" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 73, 267" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 73, 267, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 77, 178" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 79, 267, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 82, 252" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler.v, 82, 256, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="ROM_Handler_Top_wrapper.v, 177, 250" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="42" type="GuiMode"/>
+<property name="GuiMode" value="43" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="24" type="TclMode"/>
+<property name="TclMode" value="25" type="TclMode"/>
 </item>
 </section>
 </application>
