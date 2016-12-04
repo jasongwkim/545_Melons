@@ -46,7 +46,8 @@ module DMA(
     
     assign Z80_data = Z80_local;
     
-    enum {IDLE, M68_READ, M68_WRITE, Z80_READ, Z80_WRITE, VDP_READ, VDP_WRITE, VDP_DMA_WRITE, M68_READ_DTACKHOLD1, M68_READ_DTACKHOLD2, HOLD} state;
+    enum {IDLE, M68_READ, M68_WRITE, Z80_READ, Z80_WRITE, VDP_READ, VDP_WRITE, VDP_DMA_WRITE, 
+          M68_READ_DTACKHOLD1, M68_READ_DTACKHOLD2, HOLD} state;
     
     always_ff @(posedge clk, negedge rst_n) begin
         if(~rst_n) begin
@@ -183,7 +184,7 @@ module DMA(
                         VDP_SEL <= 1'b0;
                         M68_data_in <= VDP_DO;
                         M68_dtack <= 1'b0;
-                        state <= VDP_READ_DTACKHOLD1;
+                        state <= M68_READ_DTACKHOLD1;
                     end
                     else begin
                         state <= VDP_READ;
@@ -204,7 +205,7 @@ module DMA(
                 end
                 M68_READ_DTACKHOLD2: begin
                     state <= HOLD; //just holds data on line for another cycle
-                end    
+                end 
                 HOLD: begin
                     M68_dtack <= 1'b1;
                     state <= IDLE;
