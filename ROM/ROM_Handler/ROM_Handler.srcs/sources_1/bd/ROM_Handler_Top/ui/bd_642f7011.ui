@@ -5,12 +5,14 @@ preplace port dtack -pg 1 -y 210 -defaultsOSRD
 preplace port as -pg 1 -y 210 -defaultsOSRD
 preplace port clk -pg 1 -y -150 -defaultsOSRD
 preplace port rst_n -pg 1 -y -110 -defaultsOSRD
+preplace portBus data -pg 1 -y 110 -defaultsOSRD
 preplace portBus addr -pg 1 -y 190 -defaultsOSRD
 preplace inst ROM_Handler_0 -pg 1 -lvl 1 -y 160 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -y 570 -defaultsOSRD
 preplace netloc addr_1 1 0 1 N
 preplace netloc ROM_Handler_0_ROM_addr_1 1 0 2 20 60 680
 preplace netloc ROM_Handler_0_ROM_addr_2 1 0 2 40 260 690
+preplace netloc ROM_Handler_0_data 1 1 1 N
 preplace netloc as_1 1 0 1 N
 preplace netloc rst_n_1 1 0 1 -20
 preplace netloc clk_1 1 0 1 -10

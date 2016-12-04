@@ -165,6 +165,7 @@ proc create_root_design { parentCell } {
   set addr [ create_bd_port -dir I -from 23 -to 0 -type data addr ]
   set as [ create_bd_port -dir I as ]
   set clk [ create_bd_port -dir I -type clk clk ]
+  set data [ create_bd_port -dir O -from 15 -to 0 -type data data ]
   set dtack [ create_bd_port -dir O dtack ]
   set rst_n [ create_bd_port -dir I rst_n ]
 
@@ -210,6 +211,7 @@ CONFIG.use_bram_block {Stand_Alone} \
   # Create port connections
   connect_bd_net -net ROM_Handler_0_ROM_addr_1 [get_bd_pins ROM_Handler_0/ROM_addr_1] [get_bd_pins blk_mem_gen_0/addra]
   connect_bd_net -net ROM_Handler_0_ROM_addr_2 [get_bd_pins ROM_Handler_0/ROM_addr_2] [get_bd_pins blk_mem_gen_0/addrb]
+  connect_bd_net -net ROM_Handler_0_data [get_bd_ports data] [get_bd_pins ROM_Handler_0/data]
   connect_bd_net -net ROM_Handler_0_dtack [get_bd_ports dtack] [get_bd_pins ROM_Handler_0/dtack]
   connect_bd_net -net ROM_Handler_0_rd_en_1 [get_bd_pins ROM_Handler_0/rd_en_1] [get_bd_pins blk_mem_gen_0/ena]
   connect_bd_net -net ROM_Handler_0_rd_en_2 [get_bd_pins ROM_Handler_0/rd_en_2] [get_bd_pins blk_mem_gen_0/enb]
@@ -230,12 +232,14 @@ preplace port dtack -pg 1 -y 210 -defaultsOSRD
 preplace port as -pg 1 -y 210 -defaultsOSRD
 preplace port clk -pg 1 -y -150 -defaultsOSRD
 preplace port rst_n -pg 1 -y -110 -defaultsOSRD
+preplace portBus data -pg 1 -y 110 -defaultsOSRD
 preplace portBus addr -pg 1 -y 190 -defaultsOSRD
 preplace inst ROM_Handler_0 -pg 1 -lvl 1 -y 160 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -y 570 -defaultsOSRD
 preplace netloc addr_1 1 0 1 N
 preplace netloc ROM_Handler_0_ROM_addr_1 1 0 2 20 60 680
 preplace netloc ROM_Handler_0_ROM_addr_2 1 0 2 40 260 690
+preplace netloc ROM_Handler_0_data 1 1 1 N
 preplace netloc as_1 1 0 1 N
 preplace netloc rst_n_1 1 0 1 -20
 preplace netloc clk_1 1 0 1 -10

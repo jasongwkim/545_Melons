@@ -4,7 +4,6 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -13,9 +12,10 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Users/bradp/OneDrive/Documents/College/18-545/ROM_Handler/ROM_Handler.cache/wt [current_project]
 set_property parent.project_path C:/Users/bradp/OneDrive/Documents/College/18-545/ROM_Handler/ROM_Handler.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-add_files {{c:/Users/bradp/OneDrive/Documents/College/18-545/Sonic the Hedgehog.bin.coe}}
+add_files {{C:/Users/bradp/OneDrive/Documents/College/18-545/Sonic the Hedgehog.bin.coe}}
 add_files C:/Users/bradp/OneDrive/Documents/College/18-545/ROM_Handler/ROM_Handler.srcs/sources_1/bd/ROM_Handler_Top/ROM_Handler_Top.bd
 set_property used_in_implementation false [get_files -all c:/Users/bradp/OneDrive/Documents/College/18-545/ROM_Handler/ROM_Handler.srcs/sources_1/bd/ROM_Handler_Top/ip/ROM_Handler_Top_blk_mem_gen_0_0/ROM_Handler_Top_blk_mem_gen_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all C:/Users/bradp/OneDrive/Documents/College/18-545/ROM_Handler/ROM_Handler.srcs/sources_1/bd/ROM_Handler_Top/ROM_Handler_Top_ooc.xdc]

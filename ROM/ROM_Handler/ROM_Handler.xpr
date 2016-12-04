@@ -20,6 +20,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="XPMLibraries" Val="XPM_MEMORY"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
     <Option Name="IPUserFilesDir" Val="$PPRDIR/ROM_Handler.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/ROM_Handler.ip_user_files/ipstatic"/>
@@ -55,16 +56,13 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hdl/ROM_Handler_Top.v"/>
         <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="ip/ROM_Handler_Top_ROM_Handler_0_1/ROM_Handler_Top_ROM_Handler_0_1.xci"/>
         <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="ip/ROM_Handler_Top_blk_mem_gen_0_0/ROM_Handler_Top_blk_mem_gen_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="ROM_Handler_Top_ROM_Handler_0_1.xml"/>
-        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hdl/ROM_Handler_Top.hwdef"/>
-        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hw_handoff/ROM_Handler_Top_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hw_handoff/ROM_Handler_Top.hwh"/>
-        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hdl/ROM_Handler_Top.v"/>
-        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="sim/ROM_Handler_Top_ROM_Handler_0_1.v"/>
-        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="synth/ROM_Handler_Top_ROM_Handler_0_1.v"/>
         <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="ROM_Handler_Top_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hdl/ROM_Handler_Top.hwdef"/>
+        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hw_handoff/ROM_Handler_Top.hwh"/>
+        <CompFileExtendedInfo CompFileName="ROM_Handler_Top.bd" FileRelPathName="hw_handoff/ROM_Handler_Top_bd.tcl"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/ROM_Handler_Top/hdl/ROM_Handler_Top_wrapper.v">
         <FileInfo>

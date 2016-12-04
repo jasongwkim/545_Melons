@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec 04 16:37:37 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec 04 16:56:20 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="ROM_Handler_Top" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -23,14 +23,19 @@
         <CONNECTION INSTANCE="ROM_Handler_0" PORT="addr"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="O" NAME="dtack" SIGIS="undef" SIGNAME="ROM_Handler_0_dtack">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ROM_Handler_0" PORT="dtack"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="as" SIGIS="undef" SIGNAME="External_Ports_as">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ROM_Handler_0" PORT="as"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="dtack" SIGIS="undef" SIGNAME="ROM_Handler_0_dtack">
+    <PORT DIR="O" LEFT="15" NAME="data" RIGHT="0" SIGIS="data" SIGNAME="ROM_Handler_0_data">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="ROM_Handler_0" PORT="dtack"/>
+        <CONNECTION INSTANCE="ROM_Handler_0" PORT="data"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -75,7 +80,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="as"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="data" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="15" NAME="data" RIGHT="0" SIGIS="undef" SIGNAME="ROM_Handler_0_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="data"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="18" NAME="ROM_addr_1" RIGHT="0" SIGIS="undef" SIGNAME="ROM_Handler_0_ROM_addr_1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="addra"/>

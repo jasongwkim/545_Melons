@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Sun Dec 04 16:36:47 2016
+//Date        : Sun Dec 04 16:56:20 2016
 //Host        : DESKTOP-4Q1GBRI running 64-bit major release  (build 9200)
 //Command     : generate_target ROM_Handler_Top.bd
 //Design      : ROM_Handler_Top
@@ -14,16 +14,19 @@ module ROM_Handler_Top
    (addr,
     as,
     clk,
+    data,
     dtack,
     rst_n);
   input [23:0]addr;
   input as;
   input clk;
+  output [15:0]data;
   output dtack;
   input rst_n;
 
   wire [18:0]ROM_Handler_0_ROM_addr_1;
   wire [18:0]ROM_Handler_0_ROM_addr_2;
+  wire [15:0]ROM_Handler_0_data;
   wire ROM_Handler_0_dtack;
   wire ROM_Handler_0_rd_en_1;
   wire ROM_Handler_0_rd_en_2;
@@ -37,6 +40,7 @@ module ROM_Handler_Top
   assign addr_1 = addr[23:0];
   assign as_1 = as;
   assign clk_1 = clk;
+  assign data[15:0] = ROM_Handler_0_data;
   assign dtack = ROM_Handler_0_dtack;
   assign rst_n_1 = rst_n;
   ROM_Handler_Top_ROM_Handler_0_1 ROM_Handler_0
@@ -47,6 +51,7 @@ module ROM_Handler_Top
         .addr(addr_1),
         .as(as_1),
         .clk(clk_1),
+        .data(ROM_Handler_0_data),
         .dtack(ROM_Handler_0_dtack),
         .rd_en_1(ROM_Handler_0_rd_en_1),
         .rd_en_2(ROM_Handler_0_rd_en_2),
