@@ -31,9 +31,9 @@ module DMA(
     input logic VDP_DTACK_N, HINT, VINT_TG68, VINT_T80, VDP_VBUS_SEL,
     output logic M68_dtack, Z80_busack, RAM_8_en, RAM_16_en, RAM_8_we, RAM_16_we, 
     output logic [7:0] RAM_8_data_in, 
-    output logic [15:0] VDP_DI,
-    output logic VDP_RNW, VDP_UDS_N, VDP_LDS_N, VDP_SEL, HINT_ACK, VINT_TG68_ACK,
-    output logic [4:0]VDP_A
+    output logic [15:0] VDP_DI, VDP_VBUS_DATA,
+    output logic VDP_RNW, VDP_UDS_N, VDP_LDS_N, VDP_SEL, HINT_ACK, VINT_TG68_ACK, VDP_VBUS_DTACK_N,
+    output logic [4:0]VDP_A,
     output logic [9:0] RAM_8_addr,
     output logic [11:0] RAM_16_addr,
     output logic [15:0] RAM_16_data_in, M68_data_in,
@@ -63,21 +63,21 @@ module DMA(
                                 //data port read
                                 VDP_SEL <= 1'b1;
                                 VDP_RNW <= 1'b1;
-                                VDP_A <= 5'b00000
+                                VDP_A <= 5'b00000;
                                 state <= VDP_READ;
                             end
                             else if(M68_addr == 24'hC00004) begin
                                 //control port read- status reg
                                 VDP_SEL <= 1'b1;
                                 VDP_RNW <= 1'b1;
-                                VDP_A <= 5'b00100
+                                VDP_A <= 5'b00100;
                                 state <= VDP_READ;
                             end
                             else if(M68_addr == 24'hC00008) begin
                                 //HV counter read
                                 VDP_SEL <= 1'b1;
                                 VDP_RNW <= 1'b1;
-                                VDP_A <= 5'b01000
+                                VDP_A <= 5'b01000;
                                 state <= VDP_READ;
                             end
                             else begin
@@ -100,7 +100,7 @@ module DMA(
                                 VDP_SEL <= 1'b1;
                                 VDP_RNW <= 1'b0;
                                 VDP_DI <= M68_data_out;
-                                VDP_A <= 5'b00000
+                                VDP_A <= 5'b00000;
                                 state <= VDP_WRITE;
                             end
                             else if(M68_addr == 24'hC00004) begin
@@ -108,7 +108,7 @@ module DMA(
                                 VDP_SEL <= 1'b1;
                                 VDP_RNW <= 1'b0;
                                 VDP_DI <= M68_data_out;
-                                VDP_A <= 5'b00100
+                                VDP_A <= 5'b00100;
                                 state <= VDP_WRITE;
                             end
                             else begin
@@ -130,12 +130,13 @@ module DMA(
                         end
                         else if(!Z80_wr) begin
                             if(M68_addr == 24'hC00000) begin
-                                VDP_data_rw <= 0;
-                                VDP_data <= Z80_data;
+                                VDP_SEL <= 1;
+                                VDP_RNW <= 0;
+                                VDP_DI <= Z80_data;
                             end
                             else if(M68_addr == 24'hC00004) begin
-                                VDP_control_rw <= 0;
-                                VDP_control <= Z80_data;
+                                VDP_RNW <= 0;
+                                VDP_DI <= Z80_data;
                             end
                             else begin
                                 RAM_8_en <= 1;
@@ -158,8 +159,7 @@ module DMA(
                     state <= HOLD;
                 end    
                 Z80_READ: begin
-                    VDP_data_rw <= 1;
-                    VDP_control_rw <= 1;
+                    VDP_RNW <= 1;
                     Z80_local <= RAM_8_data_out;
                     RAM_8_en <= 0;
                     state <= IDLE;
@@ -181,7 +181,7 @@ module DMA(
                 VDP_READ: begin
                     if(!VDP_DTACK_N) begin
                         VDP_SEL <= 1'b0;
-                        M68_data_in <= VRAM_DO;
+                        M68_data_in <= VDP_DO;
                         M68_dtack <= 1'b0;
                         state <= VDP_READ_DTACKHOLD1;
                     end
