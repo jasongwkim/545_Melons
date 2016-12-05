@@ -12,7 +12,6 @@
 module DMA_top_wrapper
    (HINT,
     HINT_ACK,
-    HV_count,
     M68_addr,
     M68_as,
     M68_data_in,
@@ -44,7 +43,6 @@ module DMA_top_wrapper
     rst_n);
   input HINT;
   output HINT_ACK;
-  input [15:0]HV_count;
   input [31:0]M68_addr;
   input M68_as;
   output [15:0]M68_data_in;
@@ -77,7 +75,6 @@ module DMA_top_wrapper
 
   wire HINT;
   wire HINT_ACK;
-  wire [15:0]HV_count;
   wire [31:0]M68_addr;
   wire M68_as;
   wire [15:0]M68_data_in;
@@ -111,7 +108,6 @@ module DMA_top_wrapper
   DMA_top DMA_top_i
        (.HINT(HINT),
         .HINT_ACK(HINT_ACK),
-        .HV_count(HV_count),
         .M68_addr(M68_addr),
         .M68_as(M68_as),
         .M68_data_in(M68_data_in),

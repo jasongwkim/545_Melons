@@ -43,7 +43,7 @@ module ROM_Handler_Top
   assign data[15:0] = ROM_Handler_0_data;
   assign dtack = ROM_Handler_0_dtack;
   assign rst_n_1 = rst_n;
-  ROM_Handler_Top_ROM_Handler_0_1 ROM_Handler_0
+  ROM_Handler ROM_Handler_0
        (.ROM_addr_1(ROM_Handler_0_ROM_addr_1),
         .ROM_addr_2(ROM_Handler_0_ROM_addr_2),
         .ROM_data_1(blk_mem_gen_0_douta),
@@ -56,7 +56,7 @@ module ROM_Handler_Top
         .rd_en_1(ROM_Handler_0_rd_en_1),
         .rd_en_2(ROM_Handler_0_rd_en_2),
         .rst_n(rst_n_1));
-  ROM_Handler_Top_blk_mem_gen_0_0 blk_mem_gen_0
+  Game_ROM sanic
        (.addra(ROM_Handler_0_ROM_addr_1),
         .addrb(ROM_Handler_0_ROM_addr_2),
         .clka(clk_1),
@@ -64,7 +64,5 @@ module ROM_Handler_Top
         .douta(blk_mem_gen_0_douta),
         .doutb(blk_mem_gen_0_doutb),
         .ena(ROM_Handler_0_rd_en_1),
-        .enb(ROM_Handler_0_rd_en_2),
-        .rsta(rst_n_1),
-        .rstb(rst_n_1));
+        .enb(ROM_Handler_0_rd_en_2));
 endmodule

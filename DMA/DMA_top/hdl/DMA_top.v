@@ -13,7 +13,6 @@
 module DMA_top
    (HINT,
     HINT_ACK,
-    HV_count,
     M68_addr,
     M68_as,
     M68_data_in,
@@ -45,7 +44,6 @@ module DMA_top
     rst_n);
   input HINT;
   output HINT_ACK;
-  input [15:0]HV_count;
   input [31:0]M68_addr;
   input M68_as;
   output [15:0]M68_data_in;
@@ -97,7 +95,6 @@ module DMA_top
   wire DMA_wrapper_0_VDP_VBUS_DTACK_N;
   wire DMA_wrapper_0_VINT_TG68_ACK;
   wire HINT_1;
-  wire [15:0]HV_count_1;
   wire [31:0]M68_addr_1;
   wire M68_as_1;
   wire [15:0]M68_data_out_1;
@@ -121,7 +118,6 @@ module DMA_top
 
   assign HINT_1 = HINT;
   assign HINT_ACK = DMA_wrapper_0_HINT_ACK;
-  assign HV_count_1 = HV_count[15:0];
   assign M68_addr_1 = M68_addr[31:0];
   assign M68_as_1 = M68_as;
   assign M68_data_in[15:0] = DMA_wrapper_0_M68_data_in;
@@ -150,10 +146,9 @@ module DMA_top
   assign Z80_wr_1 = Z80_wr;
   assign clk_1 = clk;
   assign rst_n_1 = rst_n;
-  DMA_top_DMA_wrapper_0_0 DMA_wrapper_0
+  DMA_wrapper DMA_wrapper_0
        (.HINT(HINT_1),
         .HINT_ACK(DMA_wrapper_0_HINT_ACK),
-        .HV_count(HV_count_1),
         .M68_addr(M68_addr_1),
         .M68_as(M68_as_1),
         .M68_data_in(DMA_wrapper_0_M68_data_in),
@@ -193,7 +188,7 @@ module DMA_top
         .Z80_wr(Z80_wr_1),
         .clk(clk_1),
         .rst_n(rst_n_1));
-  DMA_top_blk_mem_gen_0_3 blk_mem_gen_0
+  DMA_RAM_M68 m68ram
        (.addra(DMA_wrapper_0_RAM_16_addr),
         .clka(clk_1),
         .dina(DMA_wrapper_0_RAM_16_data_in),
@@ -201,7 +196,7 @@ module DMA_top
         .ena(DMA_wrapper_0_RAM_16_en),
         .rsta(rst_n_1),
         .wea(DMA_wrapper_0_RAM_16_we));
-  DMA_top_blk_mem_gen_1_0 blk_mem_gen_1
+  DMA_RAM_Z80 z80ram
        (.addra(DMA_wrapper_0_RAM_8_addr),
         .clka(clk_1),
         .dina(DMA_wrapper_0_RAM_8_data_in),

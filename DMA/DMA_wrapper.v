@@ -29,7 +29,6 @@ module DMA_wrapper (
   Z80_addr,
   M68_data_out,
   VDP_DO,
-  HV_count,
   M68_addr,
   M68_dtack,
   RAM_8_en,
@@ -74,7 +73,6 @@ input wire [15 : 0] RAM_16_data_out;
 input wire [15 : 0] Z80_addr;
 input wire [15 : 0] M68_data_out;
 input wire [15 : 0] VDP_DO;
-input wire [15 : 0] HV_count;
 input wire [31 : 0] M68_addr;
 output wire M68_dtack;
 output wire RAM_8_en;

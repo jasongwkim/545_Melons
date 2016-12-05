@@ -27,7 +27,7 @@ module DMA(
     input logic [7:0] RAM_8_data_out,
     input logic [15:0] RAM_16_data_out, Z80_addr, M68_data_out,
     input logic [31:0] M68_addr,
-    input logic [15:0] VDP_DO, HV_count,
+    input logic [15:0] VDP_DO,
     input logic VDP_DTACK_N, HINT, VINT_TG68, VINT_T80, VDP_VBUS_SEL,
     output logic M68_dtack, Z80_busack, RAM_8_en, RAM_16_en, RAM_8_we, RAM_16_we, 
     output logic [7:0] RAM_8_data_in, 
